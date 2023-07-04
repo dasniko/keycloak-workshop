@@ -1,4 +1,4 @@
-# @dasniko’s Keycloak Workshop
+# Keycloak Workshop by @dasniko
 
 ## Voraussetzungen
 
@@ -9,6 +9,8 @@
 * HTTP-Client (z.B. Postman, Insomnia, o.ä.)
 
 ## Docker Images
+
+Folgende Docker Images werden im Workshop verwendet und können bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
 docker pull quay.io/keycloak/keycloak:21.1
@@ -21,7 +23,8 @@ docker pull dasniko/keycloak-bookshop-demo:latest
 ```
 
 ## Download Workshop-Material
-http://keycloak-experte.de/keycloak-workshop-21.1.zip
+
+https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
 
 ## Allgemeine Beispiele
 
@@ -61,8 +64,9 @@ https://github.com/dasniko/keycloak-extensions-demo/tree/main/flintstones-userpr
 Peanuts (API):
 https://github.com/dasniko/keycloak-extensions-demo/tree/main/peanuts-userprovider
 
-#### Azure AD als externer IdP
+#### Externe IdPs
 
+Azure AD:
 https://www.youtube.com/watch?v=LYF-NLHD2uQ
 
 ### Authentication Flows, Custom Authenticators & Required Actions
