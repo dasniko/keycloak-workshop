@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: docker.io/postgres:14
+    environment:
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: passw0rd
+    volumes:
+      - kc-data:/var/lib/postgresql/data
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:21.1
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_PORT: '5432'
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: passw0rd
+      KC_HOSTNAME: localhost
+      KC_LOG_LEVEL: INFO,dasniko.keycloak:debug
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./providers:/opt/keycloak/providers
+      - ./themes:/opt/keycloak/themes
+      - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
+
+  mail:
+    image: docker.io/mailhog/mailhog:latest
+    ports:
+      - "8025:8025"
+
+  ldap:
+    image: docker.io/osixia/openldap:latest
+    environment:
+      LDAP_LOG_LEVEL: '0'
+      LDAP_ORGANISATION: Acme Inc.
+      LDAP_DOMAIN: corp.acme.local
+      # admin User: cn=admin,dc=corp,dc=acme,dc=local
+      LDAP_ADMIN_PASSWORD: admin
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: 'false'
+      LDAP_SEED_INTERNAL_LDIF_PATH: /acme/openldap/ldif/acme.ldif
+    volumes:
+      - ./acme.ldif:/acme/openldap/ldif/acme.ldif
+
+  ldap_admin:
+    image: docker.io/osixia/phpldapadmin:latest
+    command: --loglevel warning
+    ports:
+      - 8090:80
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap
+      PHPLDAPADMIN_HTTPS: 'false'
+    depends_on:
+      - ldap
+
+  bookshop:
+    image: docker.io/dasniko/keycloak-bookshop-demo:latest
+    command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
+    environment:
+      WAITFORIT_TIMEOUT: '60'
+    ports:
+      - "8081:8081"
+      - "8084:8084"
+
+volumes:
+  kc-data:
+    name: keycloak-workshop-pg-data
