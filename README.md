@@ -1,0 +1,92 @@
+# @dasniko’s Keycloak Workshop
+
+## Voraussetzungen
+
+* Texteditor (Notepad++, VS Code, etc.)
+* Docker und Docker Compose V2 installiert und lauffähig (ggf. lokale * Admin-Rechte auf dem Rechner erteilen)
+* Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
+* Browser
+* HTTP-Client (z.B. Postman, Insomnia, o.ä.)
+
+## Docker Images
+
+```
+docker pull quay.io/keycloak/keycloak:21.1
+docker pull postgres:14
+docker pull nginx:alpine
+docker pull mailhog/mailhog:latest
+docker pull osixia/openldap:latest
+docker pull osixia/phpldapadmin:latest
+docker pull dasniko/keycloak-bookshop-demo:latest
+```
+
+## Download Workshop-Material
+http://keycloak-experte.de/keycloak-workshop-21.1.zip
+
+## Allgemeine Beispiele
+
+* Niko's YouTube Kanal:
+https://www.youtube.com/@dasniko
+* Niko's GitHub Profil:
+https://github.com/dasniko
+* Keycloak Extensions Beispiele:
+https://github.com/dasniko/keycloak-extensions-demo
+* Testcontainer-Keycloak Projekt:
+https://github.com/dasniko/testcontainers-keycloak
+
+## Workshop-Links
+
+### Securing Applications
+
+OAuth2, OIDC & JWT Basics Präsentation:
+https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
+
+Bookshop (Verteilte Anwendung, Basis Quarkus & Spring Boot/Security):
+https://github.com/dasniko/keycloak-bookshop-demo
+
+BookBox (JavaScript/React.JS):
+https://github.com/dasniko/keycloak-reactjs-demo
+
+### Themeing
+
+https://www.keycloak.org/docs/latest/server_development/index.html#_themes
+
+### Identity Providers & User Federation
+
+#### User Storage  SPI (Federation)
+
+Flintstones (In-memory):
+https://github.com/dasniko/keycloak-extensions-demo/tree/main/flintstones-userprovider
+
+Peanuts (API):
+https://github.com/dasniko/keycloak-extensions-demo/tree/main/peanuts-userprovider
+
+#### Azure AD als externer IdP
+
+https://www.youtube.com/watch?v=LYF-NLHD2uQ
+
+### Authentication Flows, Custom Authenticators & Required Actions
+
+2FA SMS Authenticator:
+https://github.com/dasniko/keycloak-2fa-sms-authenticator
+
+Mobile Number Required Action:
+https://github.com/dasniko/keycloak-extensions-demo/tree/main/requiredaction
+
+### Cluster
+
+Keycloak Cluster Config:
+https://gist.github.com/dasniko/3a57913047af3ca1b6b0a83b294dc1a1
+
+Infinispan Docs:
+https://infinispan.org/docs/13.0.x/
+
+Embedded Infinispan Cluster Transports:
+https://infinispan.org/docs/13.0.x/titles/embedding/embedding.html#cluster-transport
+
+JGroups Discovery Protocols:
+http://jgroups.org/manual5/index.html#DiscoveryProtocols
+
+### Mitigating Security Threats
+
+https://www.keycloak.org/docs/latest/server_admin/index.html#mitigating-security-threats
