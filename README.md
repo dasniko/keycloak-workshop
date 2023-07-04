@@ -94,3 +94,8 @@ http://jgroups.org/manual5/index.html#DiscoveryProtocols
 ### Mitigating Security Threats
 
 https://www.keycloak.org/docs/latest/server_admin/index.html#mitigating-security-threats
+
+## Kontakt
+
+Niko Köbler  
+https://www.n-k.de
