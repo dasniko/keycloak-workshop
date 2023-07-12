@@ -13,7 +13,7 @@
 Folgende Docker Images werden im Workshop verwendet und können bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
-docker pull quay.io/keycloak/keycloak:21.1
+docker pull quay.io/keycloak/keycloak:22.0
 docker pull postgres:14
 docker pull nginx:alpine
 docker pull mailhog/mailhog:latest

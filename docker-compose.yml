@@ -10,7 +10,7 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:21.1
+    image: quay.io/keycloak/keycloak:22.0
     command: start-dev --import-realm
     environment:
       KC_DB: postgres
