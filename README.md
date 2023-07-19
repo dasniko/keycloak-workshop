@@ -20,6 +20,7 @@ docker pull mailhog/mailhog:latest
 docker pull osixia/openldap:latest
 docker pull osixia/phpldapadmin:latest
 docker pull dasniko/keycloak-bookshop-demo:latest
+docker pull dasniko/bookbox:latest
 ```
 
 ## Download Workshop-Material

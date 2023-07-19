@@ -68,6 +68,11 @@ services:
       - "8081:8081"
       - "8084:8084"
 
+  bookbox:
+    image: docker.io/dasniko/bookbox:latest
+    ports:
+      - "3000:80"
+
 volumes:
   kc-data:
     name: keycloak-workshop-pg-data
