@@ -721,7 +721,8 @@
         "saml.authnstatement": "false",
         "display.on.consent.screen": "false",
         "pkce.code.challenge.method": "S256",
-        "saml.onetimeuse.condition": "false"
+        "saml.onetimeuse.condition": "false",
+        "acr.loa.map": "{\"bronze\":\"0\",\"silver\":\"1\",\"gold\":\"2\"}"
       },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": true,
@@ -730,7 +731,8 @@
         "web-origins",
         "profile",
         "roles",
-        "email"
+        "email",
+        "acr"
       ],
       "optionalClientScopes": [
         "address",
@@ -1518,6 +1520,29 @@
             "access.token.claim": "true",
             "claim.name": "upn",
             "jsonType.label": "String"
+          }
+        }
+      ]
+    },
+    {
+      "id": "23a4ccd3-e409-4522-b17a-da101ec84c6c",
+      "name": "acr",
+      "description": "OpenID Connect scope for add acr (authentication context class reference) to the token",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "false",
+        "display.on.consent.screen": "false"
+      },
+      "protocolMappers": [
+        {
+          "id": "88123c9d-02a0-4f6f-9bf4-5b3cd6fa581e",
+          "name": "acr loa level",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-acr-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true"
           }
         }
       ]
@@ -2454,7 +2479,7 @@
     "clientOfflineSessionIdleTimeout": "0",
     "cibaInterval": "5"
   },
-  "keycloakVersion": "15.0.2",
+  "keycloakVersion": "22.0.1",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []
