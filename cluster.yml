@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: docker.io/postgres:14
+    image: docker.io/postgres:15
     environment:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: passw0rd
