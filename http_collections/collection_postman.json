@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "61ff64d7-90c9-49d3-b1aa-766a79d5bdba",
+		"name": "Keycloak Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "334014"
+	},
+	"item": [
+		{
+			"name": "User Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "john.doe"
+						},
+						{
+							"key": "password",
+							"value": "p4ssw0rd!"
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "client_id",
+							"value": "shop"
+						},
+						{
+							"key": "client_secret",
+							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
+						},
+						{
+							"key": "scope",
+							"value": "openid"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Token Admin-CLI",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "john.doe"
+						},
+						{
+							"key": "password",
+							"value": "p4ssw0rd!"
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "client_id",
+							"value": "admin-cli"
+						},
+						{
+							"key": "scope",
+							"value": "openid"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "shop"
+						},
+						{
+							"key": "client_secret",
+							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "client_id",
+							"value": "shop"
+						},
+						{
+							"key": "client_secret",
+							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{% response 'body', 'req_0cac04277b6a4f4c8e7d024f7f6e895e', 'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'never', 60 %}"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Info",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access_token",
+							"value": "{% response 'body', 'req_f38dff7b74bd4888be4fe8be8378bba3', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 280 %}"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Info",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"protocol",
+						"openid-connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieving External IDP Token",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/realms/bookshop/broker/azuread/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"bookshop",
+						"broker",
+						"azuread",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Info Azure / MS Graph",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access_token",
+							"value": "{% response 'body', 'req_deab64dc672348fa9197230d96d0d656', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://graph.microsoft.com/oidc/userinfo",
+					"protocol": "https",
+					"host": [
+						"graph",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"oidc",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
