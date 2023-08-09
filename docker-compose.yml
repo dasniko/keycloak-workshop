@@ -13,6 +13,8 @@ services:
     image: quay.io/keycloak/keycloak:22.0
     command: start-dev --import-realm
     environment:
+      # HTTP_PROXY: http://proxy:3128
+      # HTTPS_PROXY: http://proxy:3128
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
       KC_DB_URL_PORT: '5432'
