@@ -1,10 +1,14 @@
-.container {
-  max-width: 600px;
+.bg-dasniko {
+  background-image: url(../img/youtube_cover_background.jpg);
+  background-size: cover;
 }
 
-#kc-form-login .my-form-settings {
-  display: flex;
-  justify-content: space-between;
+.container {
+  max-width: 480px;
+}
+
+.page-header {
+  text-shadow: 0 0 24px #ffffff;
 }
 
 #kc-locale-dropdown a {
@@ -24,6 +28,11 @@ a#kc-current-locale-link::after {
 #kc-locale-dropdown:hover ul {
   display: block !important;
   z-index: 1;
+}
+
+#kc-social-providers li {
+  list-style: none;
+  flex: 1;
 }
 
 #kc-form-webauthn .unknown-transport-class {

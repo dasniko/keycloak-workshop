@@ -1,0 +1,16 @@
+body {
+  --pf-global--FontFamily--sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pf-global--FontFamily--heading--sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pf-global--BackgroundColor--dark-100: #1f9bcf;
+  --pf-global--Color--100: #333;
+}
+
+.pf-c-nav__list .pf-c-nav__link {
+  --pf-c-nav__list-link--Color: #1f9bcf;
+  --pf-c-nav__list-link--m-current--Color: #333;
+}
+
+.pf-c-nav__simple-list .pf-c-nav__link {
+  --pf-c-nav__simple-list-link--Color: #1f9bcf;
+  --pf-c-nav__simple-list-link--m-current--Color: #333;
+}

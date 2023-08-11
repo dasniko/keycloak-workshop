@@ -4,10 +4,10 @@
 <head>
 <style>
 body {
-  background-color: #e95420;
+  background-color: #1f9bcf;
   padding: 40px;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 main {
   background-color: white;
