@@ -6,6 +6,8 @@ services:
     environment:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: passw0rd
+    ports:
+      - 5432:5432
     volumes:
       - kc-data:/var/lib/postgresql/data
 
