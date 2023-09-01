@@ -64,18 +64,24 @@ services:
       - ldap
 
   bookshop:
-    image: docker.io/dasniko/keycloak-bookshop-demo:latest
+    image: docker.io/dasniko/bookshop:latest
     command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '60'
+      AUTH_SERVER_URL: http://keycloak:8080/realms/bookshop
+      SHOP_CLIENT_ID: shop
+      SHOP_CLIENT_SECRET: 08d171bf-ba03-44db-8279-f678d68021d7
     ports:
+      - "3000:3000"
       - "8081:8081"
-      - "8084:8084"
+      - "8083:8083"
+    volumes:
+      - ./bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json
 
   bookbox:
     image: docker.io/dasniko/bookbox:latest
     ports:
-      - "3000:80"
+      - "3003:80"
 
 volumes:
   kc-data:
