@@ -78,11 +78,6 @@ services:
     volumes:
       - ./bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json
 
-  bookbox:
-    image: docker.io/dasniko/bookbox:latest
-    ports:
-      - "3003:80"
-
 volumes:
   kc-data:
     name: keycloak-workshop-pg-data

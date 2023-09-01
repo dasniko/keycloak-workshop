@@ -20,7 +20,6 @@ docker pull mailhog/mailhog:latest
 docker pull osixia/openldap:latest
 docker pull osixia/phpldapadmin:latest
 docker pull dasniko/bookshop:latest
-docker pull dasniko/bookbox:latest
 ```
 
 ## Download Workshop-Material
@@ -45,7 +44,7 @@ https://github.com/dasniko/testcontainers-keycloak
 OAuth2, OIDC & JWT Basics Präsentation:
 https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
 
-Bookshop (Verteilte Anwendung, Basis Quarkus & Spring Boot/Security):
+Bookshop (Verteilte Anwendung, Basis Quarkus & React.JS):
 https://github.com/dasniko/keycloak-bookshop-demo
 
 BookBox (JavaScript/React.JS):
