@@ -1697,28 +1697,6 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "592cfa31-2c4e-4e6d-aec7-6f18c6a0e5a6",
-    "alias" : "http challenge",
-    "description" : "An authentication flow based on challenge-response HTTP Authentication Schemes",
-    "providerId" : "basic-flow",
-    "topLevel" : true,
-    "builtIn" : true,
-    "authenticationExecutions" : [ {
-      "authenticator" : "no-cookie-redirect",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 10,
-      "autheticatorFlow" : false,
-      "userSetupAllowed" : false
-    }, {
-      "authenticatorFlow" : true,
-      "requirement" : "REQUIRED",
-      "priority" : 20,
-      "autheticatorFlow" : true,
-      "flowAlias" : "Authentication Options",
-      "userSetupAllowed" : false
-    } ]
-  }, {
     "id" : "7eb0d6dc-ef7a-425e-b1ce-87f8950c42f4",
     "alias" : "registration",
     "description" : "registration flow",
@@ -1821,6 +1799,99 @@
       "autheticatorFlow" : false,
       "userSetupAllowed" : false
     } ]
+  }, {
+    "id": "514210bd-060f-4e87-aaa7-344cf145636b",
+    "alias": "advanced / gold condition",
+    "description": "",
+    "providerId": "basic-flow",
+    "topLevel": false,
+    "builtIn": false,
+    "authenticationExecutions": [ {
+      "authenticatorConfig": "gold",
+      "authenticator": "conditional-level-of-authentication",
+      "authenticatorFlow": false,
+      "requirement": "REQUIRED",
+      "priority": 10,
+      "autheticatorFlow": false,
+      "userSetupAllowed": false
+    }, {
+      "authenticator": "auth-otp-form",
+      "authenticatorFlow": false,
+      "requirement": "REQUIRED",
+      "priority": 20,
+      "autheticatorFlow": false,
+      "userSetupAllowed": false
+    } ]
+  },
+  {
+    "id": "2364e69b-260b-40bd-9680-d49e7a82356c",
+    "alias": "basic / silver condition",
+    "description": "",
+    "providerId": "basic-flow",
+    "topLevel": false,
+    "builtIn": false,
+    "authenticationExecutions": [ {
+      "authenticatorConfig": "silver",
+      "authenticator": "conditional-level-of-authentication",
+      "authenticatorFlow": false,
+      "requirement": "REQUIRED",
+      "priority": 10,
+      "autheticatorFlow": false,
+      "userSetupAllowed": false
+    }, {
+      "authenticator": "auth-username-password-form",
+      "authenticatorFlow": false,
+      "requirement": "REQUIRED",
+      "priority": 20,
+      "autheticatorFlow": false,
+      "userSetupAllowed": false
+    } ]
+  },
+  {
+    "id": "dfa91fc2-6619-47b0-9511-57828322a511",
+    "alias": "browser-step-up",
+    "description": "browser based step-up authentication",
+    "providerId": "basic-flow",
+    "topLevel": true,
+    "builtIn": false,
+    "authenticationExecutions": [ {
+      "authenticator": "auth-cookie",
+      "authenticatorFlow": false,
+      "requirement": "ALTERNATIVE",
+      "priority": 10,
+      "autheticatorFlow": false,
+      "userSetupAllowed": false
+    }, {
+      "authenticatorFlow": true,
+      "requirement": "ALTERNATIVE",
+      "priority": 20,
+      "autheticatorFlow": true,
+      "flowAlias": "browser-step-up forms",
+      "userSetupAllowed": false
+    } ]
+  },
+  {
+    "id": "8bff434c-9fb1-4c15-b1fc-38ca88e0b076",
+    "alias": "browser-step-up forms",
+    "description": "Username, password, otp and other auth forms.",
+    "providerId": "basic-flow",
+    "topLevel": false,
+    "builtIn": false,
+    "authenticationExecutions": [ {
+      "authenticatorFlow": true,
+      "requirement": "CONDITIONAL",
+      "priority": 10,
+      "autheticatorFlow": true,
+      "flowAlias": "basic / silver condition",
+      "userSetupAllowed": false
+    }, {
+      "authenticatorFlow": true,
+      "requirement": "CONDITIONAL",
+      "priority": 20,
+      "autheticatorFlow": true,
+      "flowAlias": "advanced / gold condition",
+      "userSetupAllowed": false
+    } ]
   } ],
   "authenticatorConfig" : [ {
     "id" : "b4dc4c6d-405e-4293-9e45-dd362e09d7c2",
@@ -1833,6 +1904,21 @@
     "alias" : "review profile config",
     "config" : {
       "update.profile.on.first.login" : "missing"
+    }
+  }, {
+    "id": "c8596739-572d-4221-8e65-451df611a421",
+    "alias": "gold",
+    "config": {
+      "loa-condition-level": "2",
+      "loa-max-age": "30"
+    }
+  },
+  {
+    "id": "8ed7e2c1-c303-4985-9c53-e4f6822323b0",
+    "alias": "silver",
+    "config": {
+      "loa-condition-level": "1",
+      "loa-max-age": "36000"
     }
   } ],
   "requiredActions" : [ {
