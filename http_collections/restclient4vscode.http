@@ -1,0 +1,76 @@
+// HTTP Collection for REST Client for Visual Studio Code
+// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@client_secret=08d171bf-ba03-44db-8279-f678d68021d7
+
+###
+
+# @name UserToken
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=dasniko
+&password=test
+&grant_type=password
+&client_id=shop
+&client_secret={{client_secret}}
+&scope=openid
+
+###
+
+# @name UserToken_AdminCLI
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=dasniko
+&password=test
+&grant_type=password
+&client_id=admin-cli
+&scope=openid
+
+###
+
+# @name ClientToken
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=shop
+&client_secret={{client_secret}}
+&grant_type=client_credentials
+
+###
+
+# @name RefreshToken
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=shop
+&client_secret={{client_secret}}
+&refresh_token={{UserToken.response.body.$.refresh_token}}
+&grant_type=refresh_token
+
+###
+
+# @name UserInfo
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo
+Content-Type: application/x-www-form-urlencoded
+
+access_token={{UserToken.response.body.$.access_token}}
+
+###
+
+# @name ExternalToken
+# @prompt idpAlias The alias configured in your Keycloak IdP settings
+# @prompt access_token The Keycloak access_token to use to retrieve the original IdP tokens
+GET http://localhost:8080/realms/bookshop/broker/{{idpAlias}}/token
+Authorization: Bearer {{access_token}}
+
+###
+
+# @name ExternalUserInfo
+POST https://graph.microsoft.com/oidc/userinfo
+Content-Type: application/x-www-form-urlencoded
+
+access_token={{ExternalToken.response.body.$.access_token}}
+
+###

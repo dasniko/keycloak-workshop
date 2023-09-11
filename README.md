@@ -6,7 +6,7 @@
 * [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
 * Browser
-* HTTP-Client (z.B. [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), o.ä.)
+* HTTP-Client (z.B. [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), [REST CLient for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), o.ä.)
 
 ## Docker Images
 
