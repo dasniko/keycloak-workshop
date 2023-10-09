@@ -1,6 +1,13 @@
-.bg-dasniko {
+.bg-dasniko::before {
+  content: "";
   background-image: url(../img/youtube_cover_background.jpg);
   background-size: cover;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .container {
