@@ -1,12 +1,18 @@
 // HTTP Collection for REST Client for Visual Studio Code
 // https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
+@baseUrl=http://localhost:8080/realms/bookshop
 @client_secret=08d171bf-ba03-44db-8279-f678d68021d7
 
 ###
 
+# @name OIDCConfig
+GET {{baseUrl}}/.well-known/openid-configuration
+
+###
+
 # @name UserToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+POST {{OIDCConfig.response.body.$.token_endpoint}}
 Content-Type: application/x-www-form-urlencoded
 
 username=dasniko
@@ -19,7 +25,7 @@ username=dasniko
 ###
 
 # @name UserToken_AdminCLI
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+POST {{OIDCConfig.response.body.$.token_endpoint}}
 Content-Type: application/x-www-form-urlencoded
 
 username=dasniko
@@ -31,7 +37,7 @@ username=dasniko
 ###
 
 # @name ClientToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+POST {{OIDCConfig.response.body.$.token_endpoint}}
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
@@ -41,7 +47,7 @@ client_id=shop
 ###
 
 # @name RefreshToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+POST {{OIDCConfig.response.body.$.token_endpoint}}
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
@@ -52,7 +58,7 @@ client_id=shop
 ###
 
 # @name UserInfo
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo
+POST {{OIDCConfig.response.body.$.userinfo_endpoint}}
 Content-Type: application/x-www-form-urlencoded
 
 access_token={{UserToken.response.body.$.access_token}}
@@ -62,7 +68,7 @@ access_token={{UserToken.response.body.$.access_token}}
 # @name ExternalToken
 # @prompt idpAlias The alias configured in your Keycloak IdP settings
 # @prompt access_token The Keycloak access_token to use to retrieve the original IdP tokens
-GET http://localhost:8080/realms/bookshop/broker/{{idpAlias}}/token
+GET {{baseUrl}}/broker/{{idpAlias}}/token
 Authorization: Bearer {{access_token}}
 
 ###

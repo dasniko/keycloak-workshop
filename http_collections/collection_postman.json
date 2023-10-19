@@ -282,7 +282,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/broker/azuread/token",
+					"raw": "http://localhost:8080/realms/bookshop/broker/entraid/token",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -292,7 +292,7 @@
 						"realms",
 						"bookshop",
 						"broker",
-						"azuread",
+						"entraid",
 						"token"
 					]
 				}
