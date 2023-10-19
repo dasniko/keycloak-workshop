@@ -11,7 +11,7 @@
 }
 
 .container {
-  max-width: 480px;
+  max-width: 600px;
 }
 
 .page-header {
@@ -48,4 +48,19 @@ a#kc-current-locale-link::after {
 
 .pointer {
   cursor: pointer;
+}
+
+.kc-login-tooltip {
+  display: inline;
+  position: relative;
+}
+.kc-tooltip-text {
+  display: none;
+}
+.kc-login-tooltip:hover .kc-tooltip-text {
+  display: block;
+  position: absolute;
+  white-space: nowrap;
+  top: 20px;
+  left: 0px;
 }

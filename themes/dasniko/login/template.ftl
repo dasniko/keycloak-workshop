@@ -66,7 +66,7 @@
                     <div class="${properties.kcLabelWrapperClass!} subtitle">
                         <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                     </div>
-                    <div class="col-md-10">
+                    <div class="">
                         <h1 id="kc-page-title"><#nested "header"></h1>
                     </div>
                 </div>
@@ -79,14 +79,14 @@
                     <div class="${properties.kcLabelWrapperClass!} subtitle">
                         <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                     </div>
-                    <div class="col-md-10">
+                    <div class="">
                         <#nested "show-username">
                         <div id="kc-username" class="${properties.kcFormGroupClass!}">
                             <label id="kc-attempted-username">${auth.attemptedUsername}</label>
                             <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                                <div class="kc-login-tooltip">
+                                <div class="${properties.kcLoginTooltip!}">
                                     <i class="${properties.kcResetFlowIcon!}"></i>
-                                    <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
+                                    <span class="${properties.kcLoginTooltipText!}">${msg("restartLoginTooltip")}</span>
                                 </div>
                             </a>
                         </div>
@@ -97,9 +97,9 @@
                 <div id="kc-username" class="${properties.kcFormGroupClass!}">
                     <label id="kc-attempted-username">${auth.attemptedUsername}</label>
                     <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                        <div class="kc-login-tooltip">
+                        <div class="${properties.kcLoginTooltip!}">
                             <i class="${properties.kcResetFlowIcon!}"></i>
-                            <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
+                            <span class="${properties.kcLoginTooltipText!}">${msg("restartLoginTooltip")}</span>
                         </div>
                     </a>
                 </div>
@@ -127,7 +127,7 @@
               <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
                   <div class="${properties.kcFormGroupClass!}">
                       <input type="hidden" name="tryAnotherWay" value="on"/>
-                      <a href="#" id="try-another-way"
+                      <a href="#" id="try-another-way" class="${properties.kcTryAnotherWayLink!}"
                          onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
                   </div>
               </form>

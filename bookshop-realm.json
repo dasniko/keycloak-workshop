@@ -1216,6 +1216,9 @@
     "from" : "bookshop@localhost",
     "ssl" : ""
   },
+  "loginTheme" : "dasniko",
+  "accountTheme" : "dasniko",
+  "emailTheme" : "dasniko",
   "eventsEnabled" : false,
   "eventsListeners" : [ "jboss-logging" ],
   "enabledEventTypes" : [ ],
