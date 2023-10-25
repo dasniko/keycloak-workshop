@@ -1,16 +1,26 @@
+:root {
+  --text: #333;
+  --primary: #1f9bcf;
+  --primary-hover: #1a84b0;
+}
+
 body {
   --pf-global--FontFamily--sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --pf-global--FontFamily--heading--sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --pf-global--BackgroundColor--dark-100: #1f9bcf;
-  --pf-global--Color--100: #333;
+  --pf-global--BackgroundColor--dark-100: var(--primary);
+  --pf-global--Color--100: var(--text);
 }
 
-.pf-c-nav__list .pf-c-nav__link {
-  --pf-c-nav__list-link--Color: #1f9bcf;
-  --pf-c-nav__list-link--m-current--Color: #333;
+.pf-c-nav {
+  --pf-c-nav__list-link--Color: var(--primary);
+  --pf-c-nav__list-link--m-current--Color: var(--text);
+  --pf-c-nav__simple-list-link--Color: var(--primary);
+  --pf-c-nav__simple-list-link--m-current--Color: var(--text);
 }
 
-.pf-c-nav__simple-list .pf-c-nav__link {
-  --pf-c-nav__simple-list-link--Color: #1f9bcf;
-  --pf-c-nav__simple-list-link--m-current--Color: #333;
+.pf-c-button {
+  --pf-c-button--m-link--Color: var(--primary);
+  --pf-c-button--m-link--hover--Color: var(--primary-hover);
+  --pf-c-button--m-primary--BackgroundColor: var(--primary);
+  --pf-c-button--m-primary--hover--BackgroundColor: var(--primary-hover);
 }
