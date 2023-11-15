@@ -188,7 +188,7 @@
 						},
 						{
 							"key": "refresh_token",
-							"value": "{% response 'body', 'req_0cac04277b6a4f4c8e7d024f7f6e895e', 'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'never', 60 %}"
+							"value": ""
 						}
 					]
 				},
@@ -225,7 +225,7 @@
 					"urlencoded": [
 						{
 							"key": "access_token",
-							"value": "{% response 'body', 'req_f38dff7b74bd4888be4fe8be8378bba3', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 280 %}"
+							"value": ""
 						}
 					]
 				},
@@ -314,7 +314,7 @@
 					"urlencoded": [
 						{
 							"key": "access_token",
-							"value": "{% response 'body', 'req_deab64dc672348fa9197230d96d0d656', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+							"value": ""
 						}
 					]
 				},
