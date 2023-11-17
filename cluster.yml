@@ -13,6 +13,8 @@ services:
     image: quay.io/keycloak/keycloak:22.0
     command: start-dev -Djgroups.dns.query=keycloak
     environment:
+      # HTTP_PROXY: http://proxy:3128
+      # HTTPS_PROXY: http://proxy:3128
       KC_CACHE: ispn
       KC_CACHE_STACK: kubernetes
       KC_DB: postgres
@@ -24,11 +26,15 @@ services:
       KC_PROXY: edge
       KC_HOSTNAME: localhost
       KC_HOSTNAME_PORT: '8000'
+      KC_FEATURES: preview
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     deploy:
       replicas: 2
       endpoint_mode: dnsrr
+    volumes:
+      - ./providers:/opt/keycloak/providers
+      - ./themes:/opt/keycloak/themes
     depends_on:
       - postgres
 

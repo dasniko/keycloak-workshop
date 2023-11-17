@@ -24,9 +24,9 @@ services:
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: passw0rd
       KC_HOSTNAME: localhost
-      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/localhost.crt
-      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/localhost.key
-      KC_SPI_TRUSTSTORE_FILE_FILE: /opt/keycloak/conf/truststore.jks
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
+      KC_SPI_TRUSTSTORE_FILE_FILE: /opt/keycloak/certs/truststore.jks
       KC_SPI_TRUSTSTORE_FILE_PASSWORD: changeit
       KC_FEATURES: preview
       KEYCLOAK_ADMIN: admin
@@ -38,9 +38,7 @@ services:
       - ./providers:/opt/keycloak/providers
       - ./themes:/opt/keycloak/themes
       - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
-      - ./certs/localhost.crt:/opt/keycloak/conf/localhost.crt
-      - ./certs/localhost.key:/opt/keycloak/conf/localhost.key
-      - ./certs/truststore.jks:/opt/keycloak/conf/truststore.jks
+      - ./certs:/opt/keycloak/certs
 
   mail:
     image: docker.io/mailhog/mailhog:latest
