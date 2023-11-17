@@ -11,11 +11,10 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:22.0
-    command: start-dev -Djgroups.dns.query=keycloak
+    command: start -Djgroups.dns.query=keycloak
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
-      KC_CACHE: ispn
       KC_CACHE_STACK: kubernetes
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
