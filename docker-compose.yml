@@ -24,15 +24,23 @@ services:
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: passw0rd
       KC_HOSTNAME: localhost
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/localhost.crt
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/localhost.key
+      KC_SPI_TRUSTSTORE_FILE_FILE: /opt/keycloak/conf/truststore.jks
+      KC_SPI_TRUSTSTORE_FILE_PASSWORD: changeit
       KC_FEATURES: preview
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - "8080:8080"
+      - "8443:8443"
     volumes:
       - ./providers:/opt/keycloak/providers
       - ./themes:/opt/keycloak/themes
       - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
+      - ./certs/localhost.crt:/opt/keycloak/conf/localhost.crt
+      - ./certs/localhost.key:/opt/keycloak/conf/localhost.key
+      - ./certs/truststore.jks:/opt/keycloak/conf/truststore.jks
 
   mail:
     image: docker.io/mailhog/mailhog:latest
@@ -49,8 +57,15 @@ services:
       LDAP_ADMIN_PASSWORD: admin
       LDAP_REMOVE_CONFIG_AFTER_SETUP: 'false'
       LDAP_SEED_INTERNAL_LDIF_PATH: /acme/openldap/ldif/acme.ldif
+      LDAP_TLS: "true"
+      LDAP_TLS_CRT_FILENAME: "ldap.crt"
+      LDAP_TLS_KEY_FILENAME: "ldap.key"
+      LDAP_TLS_CA_CRT_FILENAME: "rootCA.crt"
+      LDAP_TLS_VERIFY_CLIENT: never
+    hostname: ldap
     volumes:
       - ./acme.ldif:/acme/openldap/ldif/acme.ldif
+      - ./certs:/container/service/slapd/assets/certs
 
   ldap_admin:
     image: docker.io/osixia/phpldapadmin:latest
