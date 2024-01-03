@@ -1,32 +1,9 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2023-10-19T14:26:22.457Z",
-    "__export_source": "insomnia.desktop.app:v8.3.0",
+    "__export_date": "2024-01-03T13:29:47.386Z",
+    "__export_source": "insomnia.desktop.app:v8.5.1",
     "resources": [
-        {
-            "_id": "req_029263c8d8e142f08a202a7e6ef7f24a",
-            "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697646157727,
-            "created": 1697645791711,
-            "url": "http://localhost:8080/realms/bookshop/.well-known/openid-configuration",
-            "name": "OIDC Configuration",
-            "description": "",
-            "method": "GET",
-            "body": {},
-            "parameters": [],
-            "headers": [],
-            "authentication": {},
-            "metaSortKey": -1697645791711,
-            "isPrivate": false,
-            "settingStoreCookies": true,
-            "settingSendCookies": true,
-            "settingDisableRenderRequestBody": false,
-            "settingEncodeUrl": true,
-            "settingRebuildPath": true,
-            "settingFollowRedirects": "global",
-            "_type": "request"
-        },
         {
             "_id": "wrk_d3281be839af42159190965c4084bc24",
             "parentId": null,
@@ -40,9 +17,9 @@
         {
             "_id": "req_b2ca5bf8fe664c7d9dd9e64553a46231",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645937166,
+            "modified": 1704288375747,
             "created": 1691594652852,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC50b2tlbl9lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
             "name": "User Token",
             "description": "",
             "method": "POST",
@@ -52,7 +29,7 @@
                     {
                         "id": "pair_2029c758efd04c9ab191a7a6a110cf0d",
                         "name": "username",
-                        "value": "john.doe"
+                        "value": "dasniko"
                     },
                     {
                         "id": "pair_0791d13afea843f7965391beea48818e",
@@ -80,7 +57,7 @@
                         "disabled": false,
                         "id": "pair_53caddb4445548b89c0d1cf9f429856d",
                         "name": "scope",
-                        "value": "openid offline_access"
+                        "value": "openid"
                     }
                 ]
             },
@@ -106,9 +83,9 @@
         {
             "_id": "req_7079be7bb13a4f0c8b4e74addb01a89e",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645946898,
+            "modified": 1704288406565,
             "created": 1691594652858,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC50b2tlbl9lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
             "name": "User Token Admin-CLI",
             "description": "",
             "method": "POST",
@@ -118,7 +95,7 @@
                     {
                         "id": "pair_2029c758efd04c9ab191a7a6a110cf0d",
                         "name": "username",
-                        "value": "john.doe"
+                        "value": "dasniko"
                     },
                     {
                         "id": "pair_0791d13afea843f7965391beea48818e",
@@ -166,9 +143,9 @@
         {
             "_id": "req_3e7e2f2f83e14838a3b8a2131e5fb62e",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645949882,
+            "modified": 1704288418787,
             "created": 1691594652854,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC50b2tlbl9lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
             "name": "Client Token",
             "description": "",
             "method": "POST",
@@ -215,9 +192,9 @@
         {
             "_id": "req_0c2b19d9784e43f688c60977410871d0",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645952976,
+            "modified": 1704288441980,
             "created": 1691594652861,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC50b2tlbl9lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
             "name": "Refresh Token",
             "description": "",
             "method": "POST",
@@ -245,7 +222,7 @@
                     {
                         "id": "pair_8fac8e30cd4c4d7d98044de61db19d5d",
                         "name": "refresh_token",
-                        "value": "{% response 'body', 'req_b2ca5bf8fe664c7d9dd9e64553a46231', 'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'never', 60 %}",
+                        "value": "",
                         "description": ""
                     }
                 ]
@@ -272,9 +249,9 @@
         {
             "_id": "req_0c43cabe9f1d4562935570d7bcf83fac",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645984705,
+            "modified": 1704288472400,
             "created": 1691594652855,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC51c2VyaW5mb19lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
             "name": "User Info",
             "description": "",
             "method": "POST",
@@ -285,7 +262,7 @@
                         "description": "",
                         "id": "pair_a695a88312e147aa9729630090c1a021",
                         "name": "access_token",
-                        "value": "{% response 'body', 'req_b2ca5bf8fe664c7d9dd9e64553a46231', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 280 %}"
+                        "value": ""
                     }
                 ]
             },
@@ -311,9 +288,9 @@
         {
             "_id": "req_2332b711501f4ffa9acac3e65bc6a593",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697645991128,
+            "modified": 1704288485120,
             "created": 1691594652860,
-            "url": "{% response 'body', 'req_029263c8d8e142f08a202a7e6ef7f24a', 'b64::JC51c2VyaW5mb19lbmRwb2ludA==::46b', 'no-history', 60 %}",
+            "url": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
             "name": "User Info",
             "description": "",
             "method": "GET",
@@ -325,7 +302,7 @@
             "headers": [],
             "authentication": {
                 "type": "bearer",
-                "token": "{% response 'body', 'req_b2ca5bf8fe664c7d9dd9e64553a46231', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 280 %}"
+                "token": ""
             },
             "metaSortKey": -1570743504860.375,
             "isPrivate": false,
@@ -340,7 +317,7 @@
         {
             "_id": "req_24dce6b08d414fbaa8d847eae48a0251",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1697702518320,
+            "modified": 1704288492809,
             "created": 1691594652856,
             "url": "http://localhost:8080/realms/bookshop/broker/entraid/token",
             "name": "Retrieving External IDP Token",
@@ -367,7 +344,7 @@
         {
             "_id": "req_90e3421b5a7b4a16b591e35b2c3c3097",
             "parentId": "wrk_d3281be839af42159190965c4084bc24",
-            "modified": 1695801411498,
+            "modified": 1704288505387,
             "created": 1691594652859,
             "url": "https://graph.microsoft.com/oidc/userinfo",
             "name": "User Info Azure / MS Graph",
@@ -380,7 +357,7 @@
                         "description": "",
                         "id": "pair_a695a88312e147aa9729630090c1a021",
                         "name": "access_token",
-                        "value": "{% response 'body', 'req_24dce6b08d414fbaa8d847eae48a0251', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+                        "value": ""
                     }
                 ]
             },

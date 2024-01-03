@@ -89,6 +89,7 @@
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
     "attributes" : {
+      "backchannel.logout.url": "http://bookshop:8081/back-channel-logout",
       "post.logout.redirect.uris" : "/*",
       "use.refresh.tokens" : "true"
     },

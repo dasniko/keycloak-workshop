@@ -12,7 +12,7 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:22.0
+    image: quay.io/keycloak/keycloak:23.0
     command: start-dev --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
@@ -77,7 +77,7 @@ services:
       - ldap
 
   bookshop:
-    image: docker.io/dasniko/bookshop:latest
+    image: docker.io/dasniko/bookshop:0.0.3
     command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '60'

@@ -1,31 +1,23 @@
 // HTTP Collection for REST Client for Visual Studio Code
 // https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
-@baseUrl=http://localhost:8080/realms/bookshop
-@client_secret=08d171bf-ba03-44db-8279-f678d68021d7
-
-###
-
-# @name OIDCConfig
-GET {{baseUrl}}/.well-known/openid-configuration
-
 ###
 
 # @name UserToken
-POST {{OIDCConfig.response.body.$.token_endpoint}}
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 username=dasniko
 &password=test
 &grant_type=password
 &client_id=shop
-&client_secret={{client_secret}}
+&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
 &scope=openid
 
 ###
 
 # @name UserToken_AdminCLI
-POST {{OIDCConfig.response.body.$.token_endpoint}}
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 username=dasniko
@@ -37,28 +29,28 @@ username=dasniko
 ###
 
 # @name ClientToken
-POST {{OIDCConfig.response.body.$.token_endpoint}}
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
-&client_secret={{client_secret}}
+&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
 &grant_type=client_credentials
 
 ###
 
 # @name RefreshToken
-POST {{OIDCConfig.response.body.$.token_endpoint}}
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
-&client_secret={{client_secret}}
+&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
 &refresh_token={{UserToken.response.body.$.refresh_token}}
 &grant_type=refresh_token
 
 ###
 
 # @name UserInfo
-POST {{OIDCConfig.response.body.$.userinfo_endpoint}}
+POST http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo
 Content-Type: application/x-www-form-urlencoded
 
 access_token={{UserToken.response.body.$.access_token}}
@@ -68,7 +60,7 @@ access_token={{UserToken.response.body.$.access_token}}
 # @name ExternalToken
 # @prompt idpAlias The alias configured in your Keycloak IdP settings
 # @prompt access_token The Keycloak access_token to use to retrieve the original IdP tokens
-GET {{baseUrl}}/broker/{{idpAlias}}/token
+GET http://localhost:8080/realms/bookshop/broker/{{idpAlias}}/token
 Authorization: Bearer {{access_token}}
 
 ###

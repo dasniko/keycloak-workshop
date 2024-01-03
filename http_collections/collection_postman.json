@@ -1,338 +1,345 @@
 {
-	"info": {
-		"_postman_id": "61ff64d7-90c9-49d3-b1aa-766a79d5bdba",
-		"name": "Keycloak Workshop",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "info": {
+        "_postman_id": "28249c3f-9ecb-4624-8ed8-16f2c2c65f2f",
+        "name": "Keycloak Workshop",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "334014"
-	},
-	"item": [
-		{
-			"name": "User Token",
+    },
+    "item": [
+        {
+            "name": "User Token",
 			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "john.doe"
-						},
-						{
-							"key": "password",
-							"value": "p4ssw0rd!"
-						},
-						{
-							"key": "grant_type",
-							"value": "password"
-						},
-						{
-							"key": "client_id",
-							"value": "shop"
-						},
-						{
-							"key": "client_secret",
-							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
-						},
-						{
-							"key": "scope",
-							"value": "openid"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "username",
+                            "value": "dasniko"
+                        },
+                        {
+                            "key": "password",
+                            "value": "test"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "password"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "shop"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "08d171bf-ba03-44db-8279-f678d68021d7"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "openid"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "token"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        },
+        {
+            "name": "User Token Admin-CLI",
+            "request": {
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "username",
+                            "value": "dasniko"
+                        },
+                        {
+                            "key": "password",
+                            "value": "test"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "password"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "admin-cli"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "openid"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "token"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        },
+        {
+            "name": "Client Token",
+            "request": {
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "client_id",
+                            "value": "shop"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "08d171bf-ba03-44db-8279-f678d68021d7"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "token"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        },
+        {
+            "name": "Refresh Token",
+            "request": {
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "refresh_token"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "shop"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "08d171bf-ba03-44db-8279-f678d68021d7"
+                        },
+                        {
+                            "key": "refresh_token",
+                            "value": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "token"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        },
 		{
-			"name": "User Token Admin-CLI",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "john.doe"
-						},
-						{
-							"key": "password",
-							"value": "p4ssw0rd!"
-						},
-						{
-							"key": "grant_type",
-							"value": "password"
-						},
-						{
-							"key": "client_id",
-							"value": "admin-cli"
-						},
-						{
-							"key": "scope",
-							"value": "openid"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Client Token",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "client_id",
-							"value": "shop"
-						},
-						{
-							"key": "client_secret",
-							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
-						},
-						{
-							"key": "grant_type",
-							"value": "client_credentials"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Refresh Token",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "grant_type",
-							"value": "refresh_token"
-						},
-						{
-							"key": "client_id",
-							"value": "shop"
-						},
-						{
-							"key": "client_secret",
-							"value": "08d171bf-ba03-44db-8279-f678d68021d7"
-						},
-						{
-							"key": "refresh_token",
-							"value": ""
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User Info",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "access_token",
-							"value": ""
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"userinfo"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User Info",
-			"request": {
-				"auth": {
+            "name": "User Info",
+            "request": {
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "access_token",
+                            "value": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "userinfo"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        },
+        {
+            "name": "User Info",
+            "request": {
+                "description": "",
+                "method": "GET",
+                "header": [],
+                                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "protocol",
+                        "openid-connect",
+                        "userinfo"
+                    ]
+                },
+                "auth": {
 					"type": "bearer"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"protocol",
-						"openid-connect",
-						"userinfo"
-					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Retrieving External IDP Token",
-			"request": {
-				"auth": {
+            },
+            "response": []
+        },
+        {
+            "name": "Retrieving External IDP Token",
+            "request": {
+                "description": "",
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/realms/bookshop/broker/entraid/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:8080"
+                    ],
+                    "path": [
+                        "realms",
+                        "bookshop",
+                        "broker",
+                        "entraid",
+                        "token"
+                    ]
+                },
+                "auth": {
 					"type": "bearer"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/realms/bookshop/broker/entraid/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"realms",
-						"bookshop",
-						"broker",
-						"entraid",
-						"token"
-					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "User Info Azure / MS Graph",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "access_token",
-							"value": ""
-						}
-					]
-				},
-				"url": {
-					"raw": "https://graph.microsoft.com/oidc/userinfo",
-					"protocol": "https",
-					"host": [
-						"graph",
-						"microsoft",
-						"com"
-					],
-					"path": [
-						"oidc",
-						"userinfo"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+            },
+            "response": []
+        },
+        {
+            "name": "User Info Azure / MS Graph",
+            "request": {
+                "description": "",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "access_token",
+                            "value": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "https://graph.microsoft.com/oidc/userinfo",
+                    "protocol": "https",
+                    "host": [
+                        "graph",
+                        "microsoft",
+                        "com"
+                    ],
+                    "path": [
+                        "oidc",
+                        "userinfo"
+                    ]
+                },
+                "auth": {}
+            },
+            "response": []
+        }
+    ]
 }

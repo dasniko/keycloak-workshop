@@ -3,7 +3,7 @@
 ## Voraussetzungen
 
 * Texteditor (Notepad++, VS Code, etc.)
-* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
+* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
 * Browser
 * HTTP-Client (z.B. [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), [REST CLient for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), o.ä.)
@@ -13,13 +13,13 @@
 Folgende Docker Images werden im Workshop verwendet und können bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
-docker pull quay.io/keycloak/keycloak:22.0
+docker pull quay.io/keycloak/keycloak:23.0
 docker pull postgres:15
 docker pull nginx:alpine
 docker pull mailhog/mailhog:latest
 docker pull osixia/openldap:latest
 docker pull osixia/phpldapadmin:latest
-docker pull dasniko/bookshop:latest
+docker pull dasniko/bookshop:0.0.3
 ```
 
 ## Download Workshop-Material
