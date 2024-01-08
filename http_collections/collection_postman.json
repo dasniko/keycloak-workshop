@@ -279,13 +279,13 @@
             "response": []
         },
         {
-            "name": "Retrieving External IDP Token",
+            "name": "Retrieving External IdP Token",
             "request": {
                 "description": "",
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:8080/realms/bookshop/broker/entraid/token",
+                    "raw": "http://localhost:8080/realms/bookshop/broker/oidc/token",
                     "protocol": "http",
                     "host": [
                         "localhost:8080"
@@ -294,7 +294,7 @@
                         "realms",
                         "bookshop",
                         "broker",
-                        "entraid",
+                        "oidc",
                         "token"
                     ]
                 },
@@ -305,7 +305,7 @@
             "response": []
         },
         {
-            "name": "User Info Azure / MS Graph",
+            "name": "User Info External IdP",
             "request": {
                 "description": "",
                 "method": "POST",
@@ -325,15 +325,19 @@
                     ]
                 },
                 "url": {
-                    "raw": "https://graph.microsoft.com/oidc/userinfo",
+                    "raw": "https://lemur-7.cloud-iam.com/auth/realms/dasniko/protocol/openid-connect/userinfo",
                     "protocol": "https",
                     "host": [
-                        "graph",
-                        "microsoft",
+                        "lemur-7",
+                        "cloud-iam",
                         "com"
                     ],
                     "path": [
-                        "oidc",
+                        "auth",
+                        "realms",
+                        "dasniko",
+                        "protocol",
+                        "openid-connect",
                         "userinfo"
                     ]
                 },

@@ -58,15 +58,14 @@ access_token={{UserToken.response.body.$.access_token}}
 ###
 
 # @name ExternalToken
-# @prompt idpAlias The alias configured in your Keycloak IdP settings
 # @prompt access_token The Keycloak access_token to use to retrieve the original IdP tokens
-GET http://localhost:8080/realms/bookshop/broker/{{idpAlias}}/token
+GET http://localhost:8080/realms/bookshop/broker/oidc/token
 Authorization: Bearer {{access_token}}
 
 ###
 
 # @name ExternalUserInfo
-POST https://graph.microsoft.com/oidc/userinfo
+POST https://lemur-7.cloud-iam.com/auth/realms/dasniko/protocol/openid-connect/userinfo
 Content-Type: application/x-www-form-urlencoded
 
 access_token={{ExternalToken.response.body.$.access_token}}
