@@ -41,7 +41,7 @@ services:
       - ./certs:/opt/keycloak/certs
 
   mail:
-    image: docker.io/mailhog/mailhog:latest
+    image: docker.io/axllent/mailpit:latest
     ports:
       - "8025:8025"
 
