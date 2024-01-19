@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TOTP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/otpauth/9.2.1/otpauth.umd.min.js"></script>
+  <style>
+    * {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Geneva, Verdana, Arial, sans-serif ;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #token {
+      border: 0.5rem solid black;
+      padding: 1rem;
+      border-radius: 1rem;
+      font-size: 5rem;
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body onload="s()">
+  <h1 id="token"></h1>
+  <script>
+    let totp;
+    let t;
+    const f = () => {
+      const _t = totp.generate();
+      if (_t !== t) {
+        document.getElementById("token").innerText = _t;
+        t = _t;
+      }
+    };
+    s = () => {
+      const secret = prompt("Enter OTP secret:");
+      totp = new OTPAuth.TOTP({ algorithm: "SHA1", digits: 6, period: 30, secret });
+      setInterval(f, 1000);
+      f();
+    };
+  </script>
+</body>
+</html>
