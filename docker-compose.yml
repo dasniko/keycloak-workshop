@@ -80,7 +80,7 @@ services:
     image: docker.io/dasniko/bookshop:0.0.3
     command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
     environment:
-      WAITFORIT_TIMEOUT: '60'
+      WAITFORIT_TIMEOUT: '120'
       AUTH_SERVER_URL: http://keycloak:8080/realms/bookshop
       SHOP_CLIENT_ID: shop
       SHOP_CLIENT_SECRET: 08d171bf-ba03-44db-8279-f678d68021d7
