@@ -7,7 +7,7 @@
 POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-username=dasniko
+username=john.doe
 &password=test
 &grant_type=password
 &client_id=shop
@@ -20,7 +20,7 @@ username=dasniko
 POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-username=dasniko
+username=john.doe
 &password=test
 &grant_type=password
 &client_id=admin-cli

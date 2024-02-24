@@ -22,7 +22,7 @@
                     "urlencoded": [
                         {
                             "key": "username",
-                            "value": "dasniko"
+                            "value": "john.doe"
                         },
                         {
                             "key": "password",
@@ -80,7 +80,7 @@
                     "urlencoded": [
                         {
                             "key": "username",
-                            "value": "dasniko"
+                            "value": "john.doe"
                         },
                         {
                             "key": "password",
