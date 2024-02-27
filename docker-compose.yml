@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: passw0rd
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - kc-data:/var/lib/postgresql/data
 
@@ -69,7 +69,7 @@ services:
     image: docker.io/osixia/phpldapadmin:latest
     command: --loglevel warning
     ports:
-      - 8090:80
+      - "8090:80"
     environment:
       PHPLDAPADMIN_LDAP_HOSTS: ldap
       PHPLDAPADMIN_HTTPS: 'false'
@@ -77,7 +77,7 @@ services:
       - ldap
 
   bookshop:
-    image: docker.io/dasniko/bookshop:0.0.3
+    image: docker.io/dasniko/bookshop:0.0.4
     command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '120'

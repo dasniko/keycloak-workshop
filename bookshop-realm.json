@@ -40,6 +40,7 @@
   "clients" : [ {
     "id" : "5fcb0ba8-031c-451a-b108-055efa1ce20e",
     "clientId" : "checkout",
+    "name": "Bookshop Checkout Application",
     "rootUrl": "http://localhost:3000",
     "baseUrl": "http://localhost:3000",
     "surrogateAuthRequired" : false,
@@ -69,6 +70,7 @@
   }, {
     "id" : "8f5e510a-3861-4b13-b000-5ddb042d442f",
     "clientId" : "shop",
+    "name": "Bookshop Webshop Application",
     "rootUrl": "http://localhost:8081",
     "baseUrl": "http://localhost:8081",
     "surrogateAuthRequired" : false,
