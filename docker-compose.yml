@@ -28,7 +28,6 @@ services:
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_SPI_TRUSTSTORE_FILE_FILE: /opt/keycloak/certs/truststore.jks
       KC_SPI_TRUSTSTORE_FILE_PASSWORD: changeit
-      KC_FEATURES: preview
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
