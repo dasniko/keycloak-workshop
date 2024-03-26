@@ -12,7 +12,7 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0
+    image: quay.io/keycloak/keycloak:24.0
     command: start-dev --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128

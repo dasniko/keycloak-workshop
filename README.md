@@ -2,8 +2,8 @@
 
 ## Voraussetzungen
 
-* Texteditor (Notepad++, VS Code, etc.)
-* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
+* Texteditor (VS Code, Notepad++, etc.)
+* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
 * Browser
 
@@ -12,7 +12,7 @@
 Folgende Docker Images werden im Workshop verwendet und können bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
-docker pull quay.io/keycloak/keycloak:23.0
+docker pull quay.io/keycloak/keycloak:24.0
 docker pull postgres:15
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
