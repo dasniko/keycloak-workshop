@@ -1,22 +1,5 @@
-.bg-dasniko::before {
-  content: "";
-  background-image: url(../img/youtube_cover_background.jpg);
-  background-size: cover;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
 .container {
   max-width: 600px;
-}
-
-.page-header {
-  text-shadow: 0 0 24px #ffffff;
 }
 
 #kc-locale-dropdown a {
@@ -64,4 +47,8 @@ a#kc-current-locale-link::after {
   white-space: nowrap;
   top: 20px;
   left: 0px;
+}
+
+button.pf-c-button.pf-m-control {
+  display: none;
 }

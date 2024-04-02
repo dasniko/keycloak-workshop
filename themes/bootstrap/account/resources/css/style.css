@@ -1,12 +1,12 @@
 :root {
-  --text: #333;
-  --primary: #1f9bcf;
-  --primary-hover: #1a84b0;
+  --text: rgb(51, 51, 51);
+  --primary: rgb(13, 110, 253);
+  --primary-hover: rgb(10, 88, 202);
 }
 
 body {
-  --pf-global--FontFamily--sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --pf-global--FontFamily--heading--sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pf-global--FontFamily--sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Verdana, Arial, sans-serif;
+  --pf-global--FontFamily--heading--sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Verdana, Arial, sans-serif;
   --pf-global--BackgroundColor--dark-100: var(--primary);
   --pf-global--Color--100: var(--text);
 }
