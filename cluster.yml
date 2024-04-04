@@ -26,8 +26,8 @@ services:
       KC_HOSTNAME: localhost
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
-      KC_SPI_TRUSTSTORE_FILE_FILE: /opt/keycloak/certs/truststore.jks
-      KC_SPI_TRUSTSTORE_FILE_PASSWORD: changeit
+      KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
+      KC_TLS_HOSTNAME_VERIFIER: ANY
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     deploy:

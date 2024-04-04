@@ -17,9 +17,3 @@ All passwords: `changeit`
     openssl x509 -req -CA rootCA.crt -CAkey rootCA.key -in localhost.csr -out localhost.crt -days 3650 -CAcreateserial -extfile localhost.ext
 
     openssl x509 -req -CA rootCA.crt -CAkey rootCA.key -in ldap.csr -out ldap.crt -days 3650 -CAcreateserial
-
-## Truststore
-
-    cp $JAVA_HOME/lib/security/cacerts truststore.jks
-
-    keytool -import -trustcacerts -noprompt -file rootCA.crt -alias ca -keystore truststore.jks
