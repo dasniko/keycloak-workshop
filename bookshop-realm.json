@@ -8,28 +8,12 @@
   "resetPasswordAllowed" : true,
   "roles" : {
     "realm" : [ {
-      "id" : "b7ad0048-fb8c-45c0-89d6-821843bf1a53",
-      "name" : "serviceAccount",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "bookshop",
-      "attributes" : { }
-    }, {
-      "id" : "4ba9446c-7fb4-4678-87c0-b5fba1bd30c7",
-      "name" : "user",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "bookshop",
-      "attributes" : { }
-    }, {
-      "id" : "9f9d5481-a26a-4017-b106-0efbd7025c99",
       "name" : "admin",
       "composite" : false,
       "clientRole" : false,
       "containerId" : "bookshop",
       "attributes" : { }
     }, {
-      "id" : "584081fd-a041-4527-8a24-8be55bfcd1a1",
       "name" : "unicorn",
       "composite" : false,
       "clientRole" : false,
@@ -38,7 +22,6 @@
     } ]
   },
   "clients" : [ {
-    "id" : "5fcb0ba8-031c-451a-b108-055efa1ce20e",
     "clientId" : "checkout",
     "name": "Bookshop Checkout Application",
     "rootUrl": "http://localhost:3000",
@@ -47,7 +30,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris": [ "/*" ],
+    "redirectUris": [ "/" ],
     "webOrigins": [ "+" ],
     "notBefore" : 0,
     "bearerOnly" : false,
@@ -68,7 +51,6 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "8f5e510a-3861-4b13-b000-5ddb042d442f",
     "clientId" : "shop",
     "name": "Bookshop Webshop Application",
     "rootUrl": "http://localhost:8081",
@@ -92,16 +74,16 @@
     "protocol" : "openid-connect",
     "attributes" : {
       "backchannel.logout.url": "http://bookshop:8081/back-channel-logout",
-      "post.logout.redirect.uris" : "/*",
-      "use.refresh.tokens" : "true"
+      "post.logout.redirect.uris" : "/",
+      "use.refresh.tokens" : "true",
+      "pkce.code.challenge.method" : "S256"
     },
     "fullScopeAllowed" : true,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   } ],
   "users": [ {
-    "id": "bffb22c5-f548-49f2-b969-477a45fbcee9",
-    "createdTimestamp": 1621071095966,
+    "createdTimestamp": 0,
     "username": "service-account-shop",
     "enabled": true,
     "totp": false,
@@ -109,9 +91,6 @@
     "serviceAccountClientId": "shop",
     "disableableCredentialTypes": [],
     "requiredActions": [],
-    "realmRoles": [
-      "serviceAccount"
-    ],
     "notBefore": 0,
     "groups": []
   } ],

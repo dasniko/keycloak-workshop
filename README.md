@@ -18,7 +18,7 @@ docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull osixia/openldap:latest
 docker pull osixia/phpldapadmin:latest
-docker pull dasniko/bookshop:0.0.5
+docker pull dasniko/bookshop:0.0.6
 ```
 
 ## Download Workshop-Material
