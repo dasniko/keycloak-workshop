@@ -3,13 +3,14 @@
 ## Voraussetzungen
 
 * Texteditor (VS Code, Notepad++, etc.)
-* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
+* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)  
+  _(ggf. können Lizenzkosten für die Nutzung von Docker Desktop anfallen, bitte informieren! Docker Desktop ist je nach Plattform nicht unbedingt notwendig für den Betrieb von Docker. Support für Docker kann nicht im Rahmen des Trainings und der Vorbereitung dessen übernommen werden!)_
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
 * Browser
 
 ## Docker Images
 
-Folgende Docker Images werden im Workshop verwendet und können bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
+Folgende Docker Images werden im Workshop verwendet und können (sollten!) bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
 docker pull quay.io/keycloak/keycloak:24.0
