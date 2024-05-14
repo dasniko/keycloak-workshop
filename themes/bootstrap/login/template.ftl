@@ -57,31 +57,31 @@
         <div class="${properties.kcFormCardClass!}">
             <header class="${properties.kcFormHeaderClass!}">
                 <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                    <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
-                        <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                            <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
-                                <button tabindex="1" id="kc-current-locale-link" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
-                                <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
-                                    <#assign i = 1>
-                                    <#list locale.supported as l>
-                                        <li class="${properties.kcLocaleListItemClass!}" role="none">
-                                            <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
-                                        </li>
-                                        <#assign i++>
-                                    </#list>
-                                </ul>
-                            </div>
+                <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
+                    <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
+                        <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
+                            <button tabindex="1" id="kc-current-locale-link" class="${properties.kcLocaleBtnClass!}" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
+                            <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
+                                <#assign i = 1>
+                                <#list locale.supported as l>
+                                    <li class="${properties.kcLocaleListItemClass!}" role="none">
+                                        <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
+                                    </li>
+                                    <#assign i++>
+                                </#list>
+                            </ul>
                         </div>
                     </div>
-                </#if>
+                </div>
+            </#if>
                 <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
                     <#if displayRequiredFields>
                         <div class="${properties.kcContentWrapperClass!}">
-                            <div class="${properties.kcLabelWrapperClass!} subtitle">
-                                <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                            </div>
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <h1 id="kc-page-title"><#nested "header"></h1>
+                            </div>
+                            <div class="${properties.kcLabelWrapperClass!} subtitle">
+                                <span class="${properties.kcRequiredFieldsLabelClass!}"><span class="required">*</span> ${msg("requiredFields")}</span>
                             </div>
                         </div>
                     <#else>
@@ -90,10 +90,7 @@
                 <#else>
                     <#if displayRequiredFields>
                         <div class="${properties.kcContentWrapperClass!}">
-                            <div class="${properties.kcLabelWrapperClass!} subtitle">
-                                <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                            </div>
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <#nested "show-username">
                                 <div id="kc-username" class="${properties.kcFormGroupClass!}">
                                     <label id="kc-attempted-username">${auth.attemptedUsername}</label>
@@ -104,6 +101,9 @@
                                         </div>
                                     </a>
                                 </div>
+                            </div>
+                            <div class="${properties.kcLabelWrapperClass!} subtitle">
+                                <span class="${properties.kcRequiredFieldsLabelClass!}"><span class="required">*</span> ${msg("requiredFields")}</span>
                             </div>
                         </div>
                     <#else>

@@ -2,6 +2,7 @@
   "id" : "bookshop",
   "realm" : "bookshop",
   "displayName" : "Bookshop Demo",
+  "displayNameHtml" : "<div class=\"logo-text\"><span>Bookshop Demo</span></div>",
   "enabled" : true,
   "registrationAllowed" : true,
   "rememberMe" : true,
