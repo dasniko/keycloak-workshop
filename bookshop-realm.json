@@ -74,7 +74,7 @@
     "protocol" : "openid-connect",
     "attributes" : {
       "backchannel.logout.url": "http://bookshop:8081/back-channel-logout",
-      "post.logout.redirect.uris" : "/",
+      "post.logout.redirect.uris" : "/index.html",
       "use.refresh.tokens" : "true",
       "pkce.code.challenge.method" : "S256"
     },
