@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: docker.io/postgres:15
+    image: docker.io/postgres:16
     environment:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: passw0rd
@@ -10,11 +10,12 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:24.0
-    command: start -Djgroups.dns.query=keycloak
+    image: quay.io/keycloak/keycloak:25.0
+    command: start
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
+      JAVA_OPTS_APPEND: -Djgroups.dns.query=keycloak
       KC_CACHE_STACK: kubernetes
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
@@ -23,7 +24,8 @@ services:
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: passw0rd
       KC_PROXY_HEADERS: xforwarded
-      KC_HOSTNAME: localhost
+      KC_HOSTNAME: 'https://localhost:8000'
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt

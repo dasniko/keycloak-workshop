@@ -13,13 +13,13 @@
 Folgende Docker Images werden im Workshop verwendet und können (sollten!) bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
-docker pull quay.io/keycloak/keycloak:24.0
-docker pull postgres:15
+docker pull quay.io/keycloak/keycloak:25.0
+docker pull postgres:16
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull osixia/openldap:latest
 docker pull osixia/phpldapadmin:latest
-docker pull dasniko/bookshop:0.0.6
+docker pull dasniko/bookshop:0.0.7
 ```
 
 ## Download Workshop-Material
