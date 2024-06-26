@@ -53,6 +53,13 @@ https://github.com/dasniko/testcontainers-keycloak
 * Moderator @ Keycloak Discourse Forum:
 https://keycloak.discourse.group/
 
+### Extension-Empfehlungen
+
+* Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi
+* Keycloak Config CLI: https://github.com/adorsys/keycloak-config-cli
+* Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery
+* Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth
+
 ### Mitigating Security Threats
 
 https://www.keycloak.org/docs/latest/server_admin/index.html#mitigating-security-threats
@@ -60,10 +67,39 @@ https://www.keycloak.org/docs/latest/server_admin/index.html#mitigating-security
 ### Cluster-/Infinispan-Docs
 
 Infinispan Docs:
-https://infinispan.org/docs/14.0.x/
+https://infinispan.org/docs/15.0.x/
 
 Embedded Infinispan / Cluster Transports:
-https://infinispan.org/docs/14.0.x/titles/embedding/embedding.html#cluster-transport
+https://infinispan.org/docs/15.0.x/titles/embedding/embedding.html#cluster-transport
 
 JGroups Discovery Protocols:
 http://jgroups.org/manual5/index.html#DiscoveryProtocols
+
+### Standards, Specs & BCP Guides
+
+#### OAuth 2.0
+
+* OAuth 2.0 Overview: https://oauth.net/2/
+* OAuth Core, RFC 6749: https://datatracker.ietf.org/doc/html/rfc6749
+* OAuth 2.0 Threat Model and Security Considerations, RFC 6819: https://datatracker.ietf.org/doc/html/rfc6819
+* OAuth 2.0 Token Revocation, RFC 7009: https://datatracker.ietf.org/doc/html/rfc7009
+* Proof Key for Code Exchange, RFC 7636: https://datatracker.ietf.org/doc/html/rfc7636
+* OAuth 2.0 for Native Apps, RFC 8252: https://datatracker.ietf.org/doc/html/rfc8252
+* OAuth 2.0 Device Authorization Grant, RFC 8628: https://datatracker.ietf.org/doc/html/rfc8628
+* OAuth 2.0 for Browser-Based Apps: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps
+* OAuth 2.0 Security Best Current Practice: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics
+
+#### OAuth 2.1
+
+* OAuth 2.1 Overview: https://oauth.net/2.1/
+* OAuth 2.1 Draft: https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1
+* GNAP Overview: https://oauth.net/gnap/
+
+#### Tokens
+
+* OAuth 2.0 Bearer Token Usage, RFC 6750: https://datatracker.ietf.org/doc/html/rfc6750
+* OAuth 2.0 Token Binding, Draft: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-token-binding-08
+* OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens, RFC 8705: https://datatracker.ietf.org/doc/html/rfc8705
+* JSON Web Token, RFC 7519: https://datatracker.ietf.org/doc/html/rfc7519
+* JSON Web Token (JWT) Best Current Practice, RFC 8725: https://datatracker.ietf.org/doc/html/rfc8725
+* JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens, RFC 9068: https://datatracker.ietf.org/doc/html/rfc9068
