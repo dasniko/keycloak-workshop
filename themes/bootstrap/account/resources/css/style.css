@@ -7,20 +7,7 @@
 body {
   --pf-global--FontFamily--sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Verdana, Arial, sans-serif;
   --pf-global--FontFamily--heading--sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Verdana, Arial, sans-serif;
-  --pf-global--BackgroundColor--dark-100: var(--primary);
-  --pf-global--Color--100: var(--text);
-}
-
-.pf-c-nav {
-  --pf-c-nav__list-link--Color: var(--primary);
-  --pf-c-nav__list-link--m-current--Color: var(--text);
-  --pf-c-nav__simple-list-link--Color: var(--primary);
-  --pf-c-nav__simple-list-link--m-current--Color: var(--text);
-}
-
-.pf-c-button {
-  --pf-c-button--m-link--Color: var(--primary);
-  --pf-c-button--m-link--hover--Color: var(--primary-hover);
-  --pf-c-button--m-primary--BackgroundColor: var(--primary);
-  --pf-c-button--m-primary--hover--BackgroundColor: var(--primary-hover);
+  --pf-v5-global--FontFamily--heading: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Tahoma, Verdana, Arial, sans-serif;
+  --pf-v5-c-page__header--BackgroundColor: var(--primary);
+  --pf-v5-c-page__sidebar--BackgroundColor: var(--primary);
 }
