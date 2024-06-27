@@ -8,6 +8,12 @@
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
 * Browser
 
+_Dieses Repository clonen oder über den u.a. Download-Link runterladen und entpacken._
+
+## Download Workshop-Material
+
+👉 https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
+
 ## Docker Images
 
 Folgende Docker Images werden im Workshop verwendet und können (sollten!) bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
@@ -22,20 +28,15 @@ docker pull osixia/phpldapadmin:latest
 docker pull dasniko/bookshop:0.0.7
 ```
 
-## Download Workshop-Material
-
-https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
-
 ## Folien & Beispiele
 
-OAuth2, OIDC & JWT Basics:
-https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
-
-Sequenz-Diagramm [Authorization Code Grant OIDC](Seq_Authorization_Code_Grant_OIDC.pdf)
-
-Sequenz-Diagramm [PKCE for OAuth2](Seq_PKCE_for_OAuth2.pdf)
-
-Bookshop (Verteilte Anwendung, Basis Quarkus, Sprint Boot & React.JS):
+* 📺 OAuth2, OIDC & JWT Basics:  
+  https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
+* 📺 Status Quo of OAuth 2:  
+  https://speakerdeck.com/dasniko/status-quo-of-oauth-2
+* 📈 Sequenz-Diagramm [Authorization Code Grant OIDC](Seq_Authorization_Code_Grant_OIDC.pdf)
+* 📈 Sequenz-Diagramm [PKCE for OAuth2](Seq_PKCE_for_OAuth2.pdf)
+* 📖 Bookshop (Verteilte Anwendung, Basis Quarkus, Sprint Boot & React.JS):  
 https://github.com/dasniko/keycloak-bookshop-demo
 
 ## Weitere Links
@@ -60,20 +61,11 @@ https://keycloak.discourse.group/
 * Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery
 * Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth
 
-### Mitigating Security Threats
-
-https://www.keycloak.org/docs/latest/server_admin/index.html#mitigating-security-threats
-
 ### Cluster-/Infinispan-Docs
 
-Infinispan Docs:
-https://infinispan.org/docs/15.0.x/
-
-Embedded Infinispan / Cluster Transports:
-https://infinispan.org/docs/15.0.x/titles/embedding/embedding.html#cluster-transport
-
-JGroups Discovery Protocols:
-http://jgroups.org/manual5/index.html#DiscoveryProtocols
+* Infinispan Docs: https://infinispan.org/docs/15.0.x/
+* Embedded Infinispan / Cluster Transports: https://infinispan.org/docs/15.0.x/titles/embedding/embedding.html#cluster-transport
+* JGroups Discovery Protocols: http://jgroups.org/manual5/index.html#DiscoveryProtocols
 
 ### Standards, Specs & BCP Guides
 
