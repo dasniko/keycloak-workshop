@@ -39,6 +39,13 @@ docker pull dasniko/bookshop:0.0.7
 * 📖 Bookshop (Verteilte Anwendung, Basis Quarkus, Sprint Boot & React.JS):  
 https://github.com/dasniko/keycloak-bookshop-demo
 
+## Links für die Workshop-Systeme
+
+* Keycloak - http://localhost:8080
+* Bookshop - http://localhost:8081
+* Mailserver - http://localhost:8025
+* LDAP Admin - http://localhost:8090
+
 ## Weitere Links
 
 ### Allgemeine Beispiele, Erweiterungen & Links
