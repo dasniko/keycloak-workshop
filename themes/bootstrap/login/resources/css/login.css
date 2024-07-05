@@ -28,7 +28,7 @@ button#kc-current-locale-link::after {
 }
 #kc-locale-dropdown:hover ul {
   display: block !important;
-  z-index: 1;
+  z-index: 10;
 }
 
 .pf-c-alert__icon {
@@ -38,6 +38,10 @@ button#kc-current-locale-link::after {
 #kc-social-providers li {
   list-style: none;
   flex: 1;
+}
+
+#kc-form-buttons {
+  display: grid !important;
 }
 
 #kc-form-webauthn .unknown-transport-class {
