@@ -77,7 +77,7 @@ services:
       - ldap
 
   bookshop:
-    image: docker.io/dasniko/bookshop:0.0.7
+    image: docker.io/dasniko/bookshop:0.0.8
     command: [ "wait-for-it.sh", "keycloak:8080", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '120'
