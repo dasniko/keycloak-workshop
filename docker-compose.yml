@@ -12,11 +12,13 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:25.0
+    image: quay.io/keycloak/keycloak:26.0
     command: start-dev --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
       KC_DB_URL_PORT: '5432'
@@ -29,8 +31,6 @@ services:
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_TLS_HOSTNAME_VERIFIER: ANY
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - "8080:8080"
       - "8443:8443"

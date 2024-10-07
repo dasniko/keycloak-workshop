@@ -19,7 +19,7 @@ _Dieses Repository clonen oder über den u.a. Download-Link runterladen und entp
 Folgende Docker Images werden im Workshop verwendet und können (sollten!) bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
 
 ```
-docker pull quay.io/keycloak/keycloak:25.0
+docker pull quay.io/keycloak/keycloak:26.0
 docker pull postgres:16
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest

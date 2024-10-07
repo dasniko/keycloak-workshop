@@ -10,12 +10,14 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:25.0
+    image: quay.io/keycloak/keycloak:26.0
     command: start
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
       JAVA_OPTS_APPEND: -Djgroups.dns.query=keycloak
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
       KC_CACHE_STACK: kubernetes
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
@@ -30,8 +32,6 @@ services:
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_TLS_HOSTNAME_VERIFIER: ANY
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
     deploy:
       replicas: 2
       endpoint_mode: dnsrr
