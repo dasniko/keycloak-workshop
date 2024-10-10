@@ -1,3 +1,4 @@
+<#import "footer.ftl" as loginFooter>
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false>
 <!DOCTYPE html>
 <html class="${properties.kcHtmlClass!}"<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}" dir="${(locale.rtl!false)?then('rtl','ltr')}"</#if>>
@@ -32,7 +33,7 @@
     <script type="importmap">
         {
             "imports": {
-                "rfc4648": "${url.resourcesCommonPath}/node_modules/rfc4648/lib/rfc4648.js"
+                "rfc4648": "${url.resourcesCommonPath}/vendor/rfc4648/rfc4648.js"
             }
         }
     </script>
@@ -164,6 +165,7 @@
         </div>
       </div>
 
+      <@loginFooter.content/>
     </div>
   </div>
 </body>
