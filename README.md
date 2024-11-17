@@ -1,5 +1,7 @@
 # Keycloak Workshop by @dasniko
 
+![](https://img.shields.io/badge/Keycloak-26.0-blue)
+
 ## Voraussetzungen
 
 * Texteditor (VS Code, Notepad++, etc.)
