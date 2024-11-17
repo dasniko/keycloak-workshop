@@ -104,3 +104,12 @@ https://keycloak.discourse.group/
 * JSON Web Token, RFC 7519: https://datatracker.ietf.org/doc/html/rfc7519
 * JSON Web Token (JWT) Best Current Practice, RFC 8725: https://datatracker.ietf.org/doc/html/rfc8725
 * JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens, RFC 9068: https://datatracker.ietf.org/doc/html/rfc9068
+
+#### OIDC
+
+* All OIDC Specifications: https://openid.net/developers/specs/
+* OpenID Connect Core 1.0: https://openid.net/specs/openid-connect-core-1_0.html
+* OpenID Connect RP-Initiated Logout 1.0: https://openid.net/specs/openid-connect-rpinitiated-1_0.html
+* OpenID Connect Session Management 1.0: https://openid.net/specs/openid-connect-session-1_0.html
+* OpenID Connect Front-Channel Logout 1.0: https://openid.net/specs/openid-connect-frontchannel-1_0.html
+* OpenID Connect Back-Channel Logout 1.0: https://openid.net/specs/openid-connect-backchannel-1_0.html
