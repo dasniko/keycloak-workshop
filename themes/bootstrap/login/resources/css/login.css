@@ -84,3 +84,9 @@ div.logo-text {
 div.logo-text span {
   display: none;
 }
+
+.bg-ninja {
+  background-image: url(../img/keycloak-ninja.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
