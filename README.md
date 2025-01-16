@@ -1,78 +1,79 @@
 # Keycloak Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.0-blue)
+![](https://img.shields.io/badge/Keycloak-26.1-blue)
 
-## Voraussetzungen
+## Prerequisites
 
 * Texteditor (VS Code, Notepad++, etc.)
-* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)  
-  _(ggf. können Lizenzkosten für die Nutzung von Docker Desktop anfallen, bitte informieren! Docker Desktop ist je nach Plattform nicht unbedingt notwendig für den Betrieb von Docker. Support für Docker kann nicht im Rahmen des Trainings und der Vorbereitung dessen übernommen werden! U.U. funktioniert auch Podman, hierfür kann aber keinerlei Support bereitgestellt werden!)_
-* Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
+* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running (if necessary, grant local admin rights on the computer)  
+  _(License costs may apply for the use of Docker Desktop, please inform us! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
+* Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
 
-_Dieses Repository clonen oder über den u.a. Download-Link runterladen und entpacken._
+_Clone this repository or download it via the following link and unzip it._  
+_(make sure the folder is called `keycloak-workshop`!)_
 
-## Download Workshop-Material
+## Download workshop resources
 
 👉 https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
 
-## Docker Images
+## Docker images
 
-Folgende Docker Images werden im Workshop verwendet und können (sollten!) bereits vor dem Workshop mit den folgenden Befehlen runtergeladen werden:
+The following images are being used in the workshop and can (should!) be pulled before the workshop:
 
 ```
-docker pull quay.io/keycloak/keycloak:26.0
-docker pull postgres:16
+docker pull quay.io/keycloak/keycloak:26.1
+docker pull postgres:17
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull osixia/openldap:latest
-docker pull osixia/phpldapadmin:latest
+docker pull jaegertracing/all-in-one:latest
 docker pull dasniko/bookshop:0.0.8
 ```
 
-## Folien & Beispiele
+## Slides & examples
 
 * 📺 OAuth2, OIDC & JWT Basics:  
   https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
 * 📺 Status Quo of OAuth 2:  
   https://speakerdeck.com/dasniko/status-quo-of-oauth-2
-* 📈 Sequenz-Diagramm [Authorization Code Grant OIDC](Seq_Authorization_Code_Grant_OIDC.pdf)
-* 📈 Sequenz-Diagramm [PKCE for OAuth2](Seq_PKCE_for_OAuth2.pdf)
-* 📖 Bookshop (Verteilte Anwendung, Basis Quarkus, Sprint Boot & React.JS):  
+* 📈 Sequence-diagram [Authorization Code Grant OIDC](Seq_Authorization_Code_Grant_OIDC.pdf)
+* 📈 Sequence-diagram [PKCE for OAuth2](Seq_PKCE_for_OAuth2.pdf)
+* 📖 Smiling Bookshop (Distributed application, based on Quarkus, Sprint Boot & React.JS):  
 https://github.com/dasniko/keycloak-bookshop-demo
 
-## Links für die Workshop-Systeme
+## Links for systems used in this workshop
 
-* Keycloak - http://localhost:8080
+* Keycloak - https://localhost
 * Bookshop - http://localhost:8081
 * Mailserver - http://localhost:8025
-* LDAP Admin - http://localhost:8090
+* Jaeger - http://localhost:16686
 
-## Weitere Links
+## More links
 
-### Allgemeine Beispiele, Erweiterungen & Links
+### Common examples, extensions & links
 
-* Niko's YouTube Kanal:
+* Niko's YouTube Channel:
 https://www.youtube.com/@dasniko
-* Niko's GitHub Profil:
+* Niko's GitHub Profile:
 https://github.com/dasniko
-* Keycloak Extensions Beispiele:
+* Keycloak Extension Examples:
 https://github.com/dasniko/keycloak-extensions-demo
-* Testcontainer-Keycloak Projekt:
+* Testcontainer-Keycloak Project:
 https://github.com/dasniko/testcontainers-keycloak
 * Moderator @ Keycloak Discourse Forum:
 https://keycloak.discourse.group/
 
-### Extension-Empfehlungen
+### Extension recommendations
 
-* Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi
 * Keycloak Config CLI: https://github.com/adorsys/keycloak-config-cli
 * Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery
 * Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth
+* (Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi, meanwhile integrated in Keycloak directly)
 
-### Cluster-/Infinispan-Docs
+### Cluster-/Infinispan docs
 
-* Infinispan Docs: https://infinispan.org/docs/15.0.x/
+* Infinispan docs: https://infinispan.org/docs/15.0.x/
 * Embedded Infinispan / Cluster Transports: https://infinispan.org/docs/15.0.x/titles/embedding/embedding.html#cluster-transport
 * JGroups Discovery Protocols: http://jgroups.org/manual5/index.html#DiscoveryProtocols
 

@@ -3,21 +3,18 @@
 
 ###
 
-# @name UserToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
-Content-Type: application/x-www-form-urlencoded
-
-username=john.doe
-&password=test
-&grant_type=password
-&client_id=shop
-&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
-&scope=openid
+# @name Healthcheck
+GET https://localhost:9000/health
 
 ###
 
-# @name UserToken_AdminCLI
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+# @name Metrics
+GET https://localhost:9000/metrics
+
+###
+
+# @name UserToken
+POST https://localhost/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 username=john.doe
@@ -29,45 +26,17 @@ username=john.doe
 ###
 
 # @name ClientToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
+POST https://localhost/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
-&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
+&client_secret=LuWb24brRRlkgt2ltd79BJEw6xV6FPpV
 &grant_type=client_credentials
 
 ###
 
-# @name RefreshToken
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/token
-Content-Type: application/x-www-form-urlencoded
-
-client_id=shop
-&client_secret=08d171bf-ba03-44db-8279-f678d68021d7
-&refresh_token={{UserToken.response.body.$.refresh_token}}
-&grant_type=refresh_token
-
-###
-
 # @name UserInfo
-POST http://localhost:8080/realms/bookshop/protocol/openid-connect/userinfo
+POST https://localhost/realms/bookshop/protocol/openid-connect/userinfo
 Content-Type: application/x-www-form-urlencoded
 
 access_token={{UserToken.response.body.$.access_token}}
-
-###
-
-# @name ExternalToken
-# @prompt access_token The Keycloak access_token to use to retrieve the original IdP tokens
-GET http://localhost:8080/realms/bookshop/broker/oidc/token
-Authorization: Bearer {{access_token}}
-
-###
-
-# @name ExternalUserInfo
-POST https://lemur-7.cloud-iam.com/auth/realms/dasniko/protocol/openid-connect/userinfo
-Content-Type: application/x-www-form-urlencoded
-
-access_token={{ExternalToken.response.body.$.access_token}}
-
-###
