@@ -1,6 +1,6 @@
 {
     "realm": "bookshop",
-    "auth-server-url": "http://localhost:8080/",
+    "auth-server-url": "https://localhost/",
     "resource": "checkout",
     "public-client": true
   }

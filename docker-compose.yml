@@ -10,7 +10,7 @@ services:
       - kc-data:/var/lib/postgresql/data
 
   keycloak:
-    image: quay.io/keycloak/keycloak:26.0
+    image: quay.io/keycloak/keycloak:26.1
     command: start-dev --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
@@ -23,12 +23,12 @@ services:
       KC_DB_URL_DATABASE: keycloak
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: passw0rd
+      KC_FEATURES: passkeys,recovery-codes,transient-users
       KC_HOSTNAME: 'http://localhost:8080'
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
-      KC_TLS_HOSTNAME_VERIFIER: ANY
     ports:
       - "8080:8080"
       - "8443:8443"
@@ -82,7 +82,7 @@ services:
       WAITFORIT_TIMEOUT: '120'
       AUTH_SERVER_URL: http://keycloak:8080/realms/bookshop
       SHOP_CLIENT_ID: shop
-      SHOP_CLIENT_SECRET: 08d171bf-ba03-44db-8279-f678d68021d7
+      SHOP_CLIENT_SECRET: LuWb24brRRlkgt2ltd79BJEw6xV6FPpV
     ports:
       - "3000:3000"
       - "8081:8081"

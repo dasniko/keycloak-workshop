@@ -1,30 +1,12 @@
 {
   "id" : "bookshop",
   "realm" : "bookshop",
-  "displayName" : "Bookshop Demo",
-  "displayNameHtml" : "<div class=\"logo-text\"><span>Bookshop Demo</span></div>",
+  "displayName" : "😊 Smiling Bookshop 📚",
+  "displayNameHtml" : "<div class=\"logo-text\"><span>😊 Smiling Bookshop 📚</span></div>",
   "enabled" : true,
-  "registrationAllowed" : true,
-  "rememberMe" : true,
-  "resetPasswordAllowed" : true,
-  "roles" : {
-    "realm" : [ {
-      "name" : "admin",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "bookshop",
-      "attributes" : { }
-    }, {
-      "name" : "unicorn",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "bookshop",
-      "attributes" : { }
-    } ]
-  },
   "clients" : [ {
     "clientId" : "checkout",
-    "name": "Bookshop Checkout Application",
+    "name": "Checkout Application",
     "rootUrl": "http://localhost:3000",
     "baseUrl": "http://localhost:3000",
     "surrogateAuthRequired" : false,
@@ -53,14 +35,14 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
     "clientId" : "shop",
-    "name": "Bookshop Webshop Application",
+    "name": "Webshop Application",
     "rootUrl": "http://localhost:8081",
     "baseUrl": "http://localhost:8081",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" : "08d171bf-ba03-44db-8279-f678d68021d7",
+    "secret" : "LuWb24brRRlkgt2ltd79BJEw6xV6FPpV",
     "redirectUris" : [ "/shop", "http://keycloak:8081/shop" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -68,7 +50,7 @@
     "consentRequired" : false,
     "standardFlowEnabled" : true,
     "implicitFlowEnabled" : false,
-    "directAccessGrantsEnabled" : true,
+    "directAccessGrantsEnabled" : false,
     "serviceAccountsEnabled" : true,
     "publicClient" : false,
     "frontchannelLogout" : false,
