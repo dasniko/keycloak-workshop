@@ -1,0 +1,149 @@
+version: 1
+
+# Add Keycloak bind user
+dn: cn=keycloak,dc=stoneage,dc=local
+changetype: add
+objectClass: person
+objectClass: top
+cn: keycloak
+sn: keycloak
+userPassword:: e1NTSEF9MW1pSWwrTUROUGlvMExTRUZPOGloejk1eldpTTN3ZGRIZDV6Z2c9P
+ Q==
+
+# Add custom ACL for keycloak bind user
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {2}to * by self read by dn="cn=admin,dc=stoneage,dc=local" by dn="cn=keycloak,dc=stoneage,dc=local" write by * none
+
+dn: ou=users,dc=stoneage,dc=local
+changetype: add
+ou: users
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=flintstones,ou=users,dc=stoneage,dc=local
+changetype: add
+ou: flintstones
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=rubbles,ou=users,dc=stoneage,dc=local
+changetype: add
+ou: rubbles
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=groups,dc=stoneage,dc=local
+changetype: add
+ou: groups
+objectClass: top
+objectClass: organizationalUnit
+
+dn: cn=Fred Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Fred Flintstone
+sn: Flintstone
+description: This is Fred Flintstone's description
+ou: flintstones
+userPassword: test
+uid: fred.flintstone
+givenName: Fred
+mail: fred.flintstone@flintstones.com
+
+dn: cn=Wilma Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Wilma Flintstone
+sn: Flintstone
+description: This is Wilma Flintstone's description
+ou: flintstones
+userPassword: test
+uid: wilma.flintstone
+givenName: Wilma
+mail: wilma.flintstone@flintstones.com
+
+dn: cn=Pebbles Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Pebbles Flintstone
+sn: Flintstone
+description: This is Pebbles Flintstone's description
+ou: flintstones
+userPassword: test
+uid: pebbles.flintstone
+givenName: Bam Bam
+mail: pebbles.flintstone@flintstones.com
+
+dn: cn=Barney Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Barney Rubble
+sn: Rubble
+description: This is Barney Rubble's description
+ou: rubbles
+userPassword: test
+uid: barney.rubble
+givenName: Barney
+mail: barney.rubble@flintstones.com
+
+dn: cn=Betty Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Betty Rubble
+sn: Rubble
+description: This is Betty Rubble's description
+ou: rubbles
+userPassword: test
+uid: betty.rubble
+givenName: Betty
+mail: betty.rubble@flintstones.com
+
+dn: cn=Bam Bam Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Bam Bam Rubble
+sn: Rubble
+description: This is Bam Bam Rubble's description
+ou: rubbles
+userPassword: test
+uid: bambam.rubble
+givenName: Betty
+mail: bambam.rubble@flintstones.com
+
+dn: cn=feuerstein,ou=groups,dc=stoneage,dc=local
+changetype: add
+cn: feuerstein
+member: cn=Fred Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+member: cn=Wilma Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+member: cn=Pebbles Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+objectclass: top
+objectclass: groupOfNames
+
+dn: cn=geroellheimer,ou=groups,dc=stoneage,dc=local
+changetype: add
+cn: geroellheimer
+member: cn=Barney Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+member: cn=Betty Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+member: cn=Bam Bam Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+objectclass: top
+objectclass: groupOfNames

@@ -16,7 +16,7 @@ _Clone this repository or download it via the following link and unzip it._
 
 👉 https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
 
-> If you unzip it, make sure the folder is called `keycloak-workshop`, not _keycloak-workshop-main_!
+> 🚨 If you unzip it, make sure the folder is called `keycloak-workshop`, not _keycloak-workshop-main_!
 
 ## Docker images
 
