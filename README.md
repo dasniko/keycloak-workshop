@@ -52,6 +52,13 @@ https://github.com/dasniko/keycloak-bookshop-demo
 
 ## More links
 
+### Keycloak docs
+
+* Guides: https://www.keycloak.org/guides
+* Docs: https://www.keycloak.org/documentation
+* Admin CLI: https://www.keycloak.org/docs/latest/server_admin/index.html#admin-cli
+* Benchmark: https://www.keycloak.org/keycloak-benchmark/
+
 ### Common examples, extensions & links
 
 * Niko's YouTube Channel:

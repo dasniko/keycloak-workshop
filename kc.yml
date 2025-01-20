@@ -21,6 +21,8 @@ services:
       # HTTPS_PROXY: http://proxy:3128
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_CLIENT_ID: admin-client
+      KC_BOOTSTRAP_ADMIN_CLIENT_SECRET: S3cr3t!
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
       KC_DB_URL_PORT: '5432'
@@ -30,9 +32,11 @@ services:
       KC_PROXY_HEADERS: xforwarded
       KC_HOSTNAME: 'https://localhost'
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
+      #KC_HOSTNAME_STRICT: 'false'
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
+      #KC_TLS_HOSTNAME_VERIFIER: ANY
       KC_FEATURES: passkeys,recovery-codes,update-email,user-event-metrics,quick-theme,transient-users
       KC_HEALTH_ENABLED: 'true'
       KC_METRICS_ENABLED: 'true'
@@ -50,6 +54,7 @@ services:
       - ./providers:/opt/keycloak/providers
       - ./themes:/opt/keycloak/themes
       - ./certs:/opt/keycloak/certs
+      - ./keycloak-benchmark:/opt/keycloak/benchmark
     depends_on:
       - postgres
 
