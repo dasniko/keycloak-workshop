@@ -1,0 +1,39 @@
+volumes:
+  kc-data:
+    name: keycloak-workshop-pg-data
+
+services:
+  postgres:
+    image: docker.io/postgres:17
+    environment:
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: passw0rd
+    ports:
+      - "5432:5432"
+    volumes:
+      - kc-data:/var/lib/postgresql/data
+
+  mail:
+    image: docker.io/axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+  
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_PORT: '5432'
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: passw0rd
+      KC_HOSTNAME: 'http://localhost:8080'
+      KC_FEATURES: quick-theme
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./providers:/opt/keycloak/providers
+      - ./themes:/opt/keycloak/themes
+    depends_on:
+      - postgres
