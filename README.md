@@ -12,6 +12,8 @@
 
 _Clone this repository or download it via the following link and unzip it._  
 
+> 🚨 Please make sure that your local folder you clone the repo to, is called `keycloak-workshop`!
+
 ## Download workshop resources
 
 👉 https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
