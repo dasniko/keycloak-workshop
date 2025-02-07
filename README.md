@@ -29,8 +29,8 @@ docker pull quay.io/keycloak/keycloak:26.1
 docker pull postgres:17
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
-docker pull osixia/openldap:latest
 docker pull jaegertracing/all-in-one:latest
+docker pull dasniko/openldap_flintstones:latest
 docker pull dasniko/bookshop:0.0.8
 ```
 

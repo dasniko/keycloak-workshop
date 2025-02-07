@@ -61,25 +61,8 @@ services:
       - keycloak
 
   ldap:
-    image: docker.io/osixia/openldap:latest
-    environment:
-      # admin User: cn=admin,dc=stoneage,dc=local
-      LDAP_ADMIN_PASSWORD: admin
-      # bind user: cn=keycloak,dc=stoneage,dc=local
-      # bind password: keycloak
-      LDAP_DOMAIN: stoneage.local
-      LDAP_LOG_LEVEL: '0'
-      LDAP_ORGANISATION: Flintstones Inc.
-      LDAP_REMOVE_CONFIG_AFTER_SETUP: 'false'
-      LDAP_SEED_INTERNAL_LDIF_PATH: /acme/openldap/ldif/flintstones.ldif
-      LDAP_TLS: "true"
-      LDAP_TLS_CRT_FILENAME: "ldap.crt"
-      LDAP_TLS_KEY_FILENAME: "ldap.key"
-      LDAP_TLS_CA_CRT_FILENAME: "rootCA.crt"
-      LDAP_TLS_VERIFY_CLIENT: never
-    volumes:
-      - ./flintstones.ldif:/acme/openldap/ldif/flintstones.ldif
-      - ./certs:/container/service/slapd/assets/certs
+    image: docker.io/dasniko/openldap_flintstones:latest
+    # bind user: cn=keycloak,dc=stoneage,dc=local
 
   bookshop:
     profiles:
