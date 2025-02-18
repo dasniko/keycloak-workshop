@@ -28,3 +28,24 @@ services:
       - "9000:9000"
     depends_on:
       - keycloak
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1
+    command: start
+    environment:
+    volumes:
+      - ./certs:/opt/keycloak/certs
+      - ./providers:/opt/keycloak/providers
+      - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
+      - ./keycloak-benchmark:/opt/keycloak/benchmark
+    deploy:
+      replicas: 2
+      endpoint_mode: dnsrr
+    depends_on:
+      - postgres
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    command: --log-level=error
+    ports:
+      - "16686:16686"

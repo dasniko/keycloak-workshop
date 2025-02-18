@@ -38,7 +38,7 @@ services:
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
-      KC_FEATURES: passkeys,recovery-codes,update-email,user-event-metrics,quick-theme,transient-users
+      KC_FEATURES: passkeys,recovery-codes,update-email,quick-theme,transient-users
     deploy:
       replicas: 2
       endpoint_mode: dnsrr
