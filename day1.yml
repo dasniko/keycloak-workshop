@@ -28,3 +28,19 @@ services:
       - "9000:9000"
     depends_on:
       - keycloak
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1
+    command: start
+    environment:
+    volumes:
+      - ./certs:/opt/keycloak/certs
+    deploy:
+      replicas: 2
+      endpoint_mode: dnsrr
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    command: --log-level=error
+    ports:
+      - "16686:16686"
