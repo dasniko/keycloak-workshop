@@ -1,4 +1,5 @@
 _internal
 .idea
 browser*.png
-export
+export/*
+!export/.gitkeep
