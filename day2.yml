@@ -39,6 +39,7 @@ services:
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
+      KC_LOG_LEVEL: info,io.opentelemetry:error,io.quarkus.opentelemetry:error
     deploy:
       replicas: 2
       endpoint_mode: dnsrr

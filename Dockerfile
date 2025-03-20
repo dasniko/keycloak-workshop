@@ -3,6 +3,7 @@ FROM ${KEYCLOAK_BASE_IMAGE} AS builder
 
 # Configure build properties
 ENV KC_DB=postgres
+# tbc...
 
 # Copy build relevant resources
 COPY ./certs /opt/keycloak/certs
