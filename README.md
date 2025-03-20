@@ -40,15 +40,15 @@ docker pull dasniko/bookshop:0.0.8
   https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
 * 📺 Status Quo of OAuth 2:  
   https://speakerdeck.com/dasniko/status-quo-of-oauth-2
-* 📈 Sequence-diagram [Authorization Code Grant OIDC](Seq_Authorization_Code_Grant_OIDC.pdf)
-* 📈 Sequence-diagram [PKCE for OAuth2](Seq_PKCE_for_OAuth2.pdf)
 * 📖 Smiling Bookshop (Distributed application, based on Quarkus, Sprint Boot & React.JS):  
 https://github.com/dasniko/keycloak-bookshop-demo
 
 ## Links for systems used in this workshop
 
-* Keycloak - https://localhost
+* Keycloak - https://localhost:8443
+  * Management Port - https://localhost:9000
 * Bookshop - http://localhost:8081
+  * Checkout - http://localhost:3000
 * Mailserver - http://localhost:8025
 * Jaeger - http://localhost:16686
 
@@ -77,9 +77,9 @@ https://keycloak.discourse.group/
 ### Extension recommendations
 
 * Keycloak Config CLI: https://github.com/adorsys/keycloak-config-cli
-* Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery
-* Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth
-* (Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi, meanwhile integrated in Keycloak directly)
+* Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery - _meanwhile most functionality available in Keycloak via Organization feature_
+* Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth - _more convenience than security_
+* (Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi - _meanwhile integrated in Keycloak directly_)
 
 ### Cluster-/Infinispan docs
 
