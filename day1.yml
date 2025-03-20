@@ -30,12 +30,11 @@ services:
       - keycloak
 
   keycloak:
-    image: quay.io/keycloak/keycloak:26.1
-    command: start
+    image: keycloak-workshop
+    build: .
+    command: start --optimized
     environment:
     volumes:
-      - ./certs:/opt/keycloak/certs
-      - ./providers:/opt/keycloak/providers
       - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
       - ./keycloak-benchmark:/opt/keycloak/benchmark
     deploy:

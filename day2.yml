@@ -19,34 +19,31 @@ services:
       - "8025:8025"
   
   keycloak:
-    image: quay.io/keycloak/keycloak:26.1
-    command: start --import-realm
+    image: keycloak-workshop
+    build: .
+    command: start --optimized --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
-      KC_DB: postgres
       KC_DB_URL_HOST: postgres
       KC_DB_URL_PORT: '5432'
       KC_DB_URL_DATABASE: keycloak
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: passw0rd
       KC_PROXY_HEADERS: xforwarded
-      KC_HOSTNAME: 'https://localhost'
+      KC_HOSTNAME: 'https://localhost:8443'
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
-      KC_FEATURES: passkeys,recovery-codes,update-email,quick-theme
+      KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
     deploy:
       replicas: 2
       endpoint_mode: dnsrr
     volumes:
       - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
-      - ./providers:/opt/keycloak/providers
-      - ./themes:/opt/keycloak/themes
-      - ./certs:/opt/keycloak/certs
     depends_on:
       - postgres
 
