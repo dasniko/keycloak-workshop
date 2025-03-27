@@ -1,6 +1,8 @@
 volumes:
   kc-data:
     name: keycloak-workshop-pg-data
+  jaeger-tmp:
+    name: keycloak-workshop-jaeger-tmp
 
 services:
   postgres:
@@ -49,3 +51,5 @@ services:
     command: --log-level=error
     ports:
       - "16686:16686"
+    volumes:
+      - jaeger-tmp:/tmp
