@@ -65,7 +65,7 @@ services:
   bookshop:
     profiles:
       - books
-    image: docker.io/dasniko/bookshop:0.0.8
+    image: docker.io/dasniko/bookshop:0.0.9
     command: [ "wait-for-it.sh", "keycloak-workshop-keycloak-1:8443", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '120'

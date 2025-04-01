@@ -31,7 +31,7 @@ docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull jaegertracing/all-in-one:latest
 docker pull dasniko/openldap_flintstones:latest
-docker pull dasniko/bookshop:0.0.8
+docker pull dasniko/bookshop:0.0.9
 ```
 
 ## Slides & examples
