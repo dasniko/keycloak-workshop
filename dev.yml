@@ -19,7 +19,7 @@ services:
       - "8025:8025"
   
   keycloak:
-    image: quay.io/keycloak/keycloak:26.1
+    image: quay.io/keycloak/keycloak:26.2
     command: start-dev
     environment:
       KC_DB: postgres

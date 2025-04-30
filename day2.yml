@@ -40,6 +40,7 @@ services:
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
       KC_LOG_LEVEL: info,io.opentelemetry:error,io.quarkus.opentelemetry:error
+      KC_SPI_EVENTS_LISTENER_EMAIL_INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
     deploy:
       replicas: 2
       endpoint_mode: dnsrr

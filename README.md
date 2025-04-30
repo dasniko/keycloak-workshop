@@ -1,11 +1,11 @@
 # Keycloak Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.1-blue)
+![](https://img.shields.io/badge/Keycloak-26.2-blue)
 
 ## Prerequisites
 
 * Texteditor (VS Code, Notepad++, etc.)
-* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running (if necessary, grant local admin rights on the computer)  
+* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running on `localhost` (if necessary, grant local admin rights on the computer)  
   _(License costs may apply for the use of Docker Desktop, please inform us! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
 * Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
@@ -25,7 +25,7 @@ _Clone this repository (with `git clone https://github.com/dasniko/keycloak-work
 The following images are being used in the workshop and can (should!) be pulled before the workshop:
 
 ```
-docker pull quay.io/keycloak/keycloak:26.1
+docker pull quay.io/keycloak/keycloak:26.2
 docker pull postgres:17
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
