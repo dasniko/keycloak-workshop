@@ -79,7 +79,7 @@ https://keycloak.discourse.group/
 * Keycloak Config CLI: https://github.com/adorsys/keycloak-config-cli
 * Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery - _meanwhile most functionality available in Keycloak via Organization feature_
 * Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth - _more convenience than security_
-* (Metrics SPI: https://github.com/aerogear/keycloak-metrics-spi - _meanwhile integrated in Keycloak directly_)
+* Keycloakify (UI Templates): https://www.keycloakify.dev
 
 ### Cluster-/Infinispan docs
 
