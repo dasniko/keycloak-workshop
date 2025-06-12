@@ -14,7 +14,7 @@ GET https://localhost:9000/metrics
 ###
 
 # @name UserToken
-POST https://localhost/realms/bookshop/protocol/openid-connect/token
+POST https://localhost:8443/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 username=john.doe
@@ -26,7 +26,7 @@ username=john.doe
 ###
 
 # @name ClientToken
-POST https://localhost/realms/bookshop/protocol/openid-connect/token
+POST https://localhost:8443/realms/bookshop/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=shop
@@ -36,7 +36,7 @@ client_id=shop
 ###
 
 # @name UserInfo
-POST https://localhost/realms/bookshop/protocol/openid-connect/userinfo
+POST https://localhost:8443/realms/bookshop/protocol/openid-connect/userinfo
 Content-Type: application/x-www-form-urlencoded
 
 access_token={{UserToken.response.body.$.access_token}}
