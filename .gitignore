@@ -1,6 +1,4 @@
 _internal
 .idea
 browser*.png
-export/*
-!export/.gitkeep
-!export/generic-realm.json
+export
