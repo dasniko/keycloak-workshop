@@ -1,4 +1,5 @@
 {
-  "realm" : "${CUSTOM_REALM_NAME}",
+  "realm": "generic",
+  "displayName" : "${CUSTOM_REALM_NAME}",
   "enabled": true
 }

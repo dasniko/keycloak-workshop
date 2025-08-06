@@ -99,7 +99,7 @@ https://keycloak.discourse.group/
 * OAuth 2.0 for Native Apps, RFC 8252: https://datatracker.ietf.org/doc/html/rfc8252
 * OAuth 2.0 Device Authorization Grant, RFC 8628: https://datatracker.ietf.org/doc/html/rfc8628
 * OAuth 2.0 for Browser-Based Apps: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps
-* Best Current Practice for OAuth 2.0 Security: https://datatracker.ietf.org/doc/html/rfc9700
+* Best Current Practice for OAuth 2.0 Security, RFC 9700: https://datatracker.ietf.org/doc/html/rfc9700
 
 #### OAuth 2.1
 

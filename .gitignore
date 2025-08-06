@@ -1,4 +1,6 @@
 _internal
 .idea
-browser*.png
 export
+*.tfvars
+*.tfstate
+*.tfstate.backup
