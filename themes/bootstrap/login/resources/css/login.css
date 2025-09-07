@@ -90,3 +90,7 @@ div.logo-text span {
   background-repeat: no-repeat;
   background-position: right center;
 }
+
+.mt-3n {
+  margin-top: -1rem;
+}
