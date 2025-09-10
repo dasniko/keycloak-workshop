@@ -1,28 +1,22 @@
-dn: ou=users,dc=stoneage,dc=local
+dn: ou=users,dc=bedrock,dc=local
 changetype: add
 ou: users
 objectClass: top
 objectClass: organizationalUnit
 
-dn: ou=flintstones,ou=users,dc=stoneage,dc=local
-changetype: add
-ou: flintstones
-objectClass: top
-objectClass: organizationalUnit
-
-dn: ou=rubbles,ou=users,dc=stoneage,dc=local
-changetype: add
-ou: rubbles
-objectClass: top
-objectClass: organizationalUnit
-
-dn: ou=groups,dc=stoneage,dc=local
+dn: ou=groups,dc=bedrock,dc=local
 changetype: add
 ou: groups
 objectClass: top
 objectClass: organizationalUnit
 
-dn: cn=Fred Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+dn: ou=roles,dc=bedrock,dc=local
+changetype: add
+ou: roles
+objectClass: top
+objectClass: organizationalUnit
+
+dn: uid=fred,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -31,14 +25,14 @@ objectClass: inetOrgPerson
 cn: Fred Flintstone
 sn: Flintstone
 description: This is Fred Flintstone's description
-ou: flintstones
-userPassword: test
-uid: fred.flintstone
+ou: users
+userPassword: fred
+uid: fred
 givenName: Fred
 mail: fred.flintstone@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/fred.png
 
-dn: cn=Wilma Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+dn: uid=wilma,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -47,14 +41,14 @@ objectClass: inetOrgPerson
 cn: Wilma Flintstone
 sn: Flintstone
 description: This is Wilma Flintstone's description
-ou: flintstones
-userPassword: test
-uid: wilma.flintstone
+ou: users
+userPassword: wilma
+uid: wilma
 givenName: Wilma
 mail: wilma.flintstone@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/wilma.png
 
-dn: cn=Pebbles Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+dn: uid=pebbles,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -63,14 +57,14 @@ objectClass: inetOrgPerson
 cn: Pebbles Flintstone
 sn: Flintstone
 description: This is Pebbles Flintstone's description
-ou: flintstones
-userPassword: test
-uid: pebbles.flintstone
+ou: users
+userPassword: pebbles
+uid: pebbles
 givenName: Pebbles
 mail: pebbles.flintstone@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/pebbles.png
 
-dn: cn=Barney Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+dn: uid=barney,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -79,14 +73,14 @@ objectClass: inetOrgPerson
 cn: Barney Rubble
 sn: Rubble
 description: This is Barney Rubble's description
-ou: rubbles
-userPassword: test
-uid: barney.rubble
+ou: users
+userPassword: barney
+uid: barney
 givenName: Barney
 mail: barney.rubble@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/barney.png
 
-dn: cn=Betty Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+dn: uid=betty,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -95,14 +89,14 @@ objectClass: inetOrgPerson
 cn: Betty Rubble
 sn: Rubble
 description: This is Betty Rubble's description
-ou: rubbles
-userPassword: test
-uid: betty.rubble
+ou: users
+userPassword: betty
+uid: betty
 givenName: Betty
 mail: betty.rubble@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/betty.png
 
-dn: cn=Bam Bam Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+dn: uid=bambam,ou=users,dc=bedrock,dc=local
 changetype: add
 objectClass: top
 objectClass: person
@@ -111,27 +105,172 @@ objectClass: inetOrgPerson
 cn: Bam Bam Rubble
 sn: Rubble
 description: This is Bam Bam Rubble's description
-ou: rubbles
-userPassword: test
-uid: bambam.rubble
+ou: users
+userPassword: bambam
+uid: bambam
 givenName: Bam Bam
 mail: bambam.rubble@flintstones.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/bambam.png
 
-dn: cn=feuerstein,ou=groups,dc=stoneage,dc=local
+dn: cn=feuerstein,ou=groups,dc=bedrock,dc=local
 changetype: add
 cn: feuerstein
-member: cn=Fred Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
-member: cn=Wilma Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
-member: cn=Pebbles Flintstone,ou=flintstones,ou=users,dc=stoneage,dc=local
+member: uid=fred,ou=users,dc=bedrock,dc=local
+member: uid=wilma,ou=users,dc=bedrock,dc=local
+member: uid=pebbles,ou=users,dc=bedrock,dc=local
 objectclass: top
 objectclass: groupOfNames
 
-dn: cn=geroellheimer,ou=groups,dc=stoneage,dc=local
+dn: cn=geroellheimer,ou=groups,dc=bedrock,dc=local
 changetype: add
 cn: geroellheimer
-member: cn=Barney Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
-member: cn=Betty Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
-member: cn=Bam Bam Rubble,ou=rubbles,ou=users,dc=stoneage,dc=local
+member: uid=barney,ou=users,dc=bedrock,dc=local
+member: uid=betty,ou=users,dc=bedrock,dc=local
+member: uid=bambam,ou=users,dc=bedrock,dc=local
 objectclass: top
 objectclass: groupOfNames
+
+dn: cn=ROLE_BEDROCK_CITIZEN,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_BEDROCK_CITIZEN
+member: uid=fred,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_QUARRY_WORKER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_QUARRY_WORKER
+member: uid=barney,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_BRONTO_BURGER_CHEF,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_BRONTO_BURGER_CHEF
+member: uid=betty,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_DINO_KEEPER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_DINO_KEEPER
+member: uid=pebbles,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_STONE_AGE_INVENTOR,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_STONE_AGE_INVENTOR
+member: uid=fred,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_CAVE_ARTIST,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_CAVE_ARTIST
+member: uid=pebbles,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_BONE_COLLECTOR,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_BONE_COLLECTOR
+member: uid=bambam,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_CLUB_SWINGER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_CLUB_SWINGER
+member: uid=barney,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_MAMMOTH_DRIVER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_MAMMOTH_DRIVER
+member: uid=fred,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_BOWLING_CHAMPION,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_BOWLING_CHAMPION
+member: uid=barney,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_PEBBLES_BABYSITTER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_PEBBLES_BABYSITTER
+member: uid=wilma,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_BAMBAM_BODYGUARD,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_BAMBAM_BODYGUARD
+member: uid=fred,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_FLINTSTONE_FAMILY,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_FLINTSTONE_FAMILY
+member: uid=fred,ou=users,dc=bedrock,dc=local
+member: uid=wilma,ou=users,dc=bedrock,dc=local
+member: uid=pebbles,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_RUBLE_FAMILY,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_RUBLE_FAMILY
+member: uid=barney,ou=users,dc=bedrock,dc=local
+member: uid=betty,ou=users,dc=bedrock,dc=local
+member: uid=bambam,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_WATER_BUFFALO_MEMBER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_WATER_BUFFALO_MEMBER
+member: uid=fred,ou=users,dc=bedrock,dc=local
+member: uid=barney,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_STONE_PHONE_OPERATOR,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_STONE_PHONE_OPERATOR
+member: uid=wilma,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_SABERTOOTH_CAT_HUNTER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_SABERTOOTH_CAT_HUNTER
+member: uid=barney,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_VOLCANO_OBSERVER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_VOLCANO_OBSERVER
+member: uid=betty,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_DINOSAUR_RIDER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_DINOSAUR_RIDER
+member: uid=fred,ou=users,dc=bedrock,dc=local
+
+dn: cn=ROLE_WOOLLY_MAMMOTH_HAIRDRESSER,ou=roles,dc=bedrock,dc=local
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE_WOOLLY_MAMMOTH_HAIRDRESSER
+member: uid=wilma,ou=users,dc=bedrock,dc=local
