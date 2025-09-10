@@ -14,6 +14,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Copy files
+        run: |
+          mkdir ./ldap/certs
+          cp ./certs/dhparam.pem ./ldap/certs/
+          cp ./certs/ldap.* ./ldap/certs/
+          cp ./certs/rootCA.crt ./ldap/certs/
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
