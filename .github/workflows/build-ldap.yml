@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./ldap
-          file: Dockerfile
+          file: ldap/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/dasniko/flintstones_ldap:latest
