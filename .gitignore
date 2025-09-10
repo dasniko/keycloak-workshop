@@ -1,8 +1,5 @@
 _internal
 .idea
 export
-*.tfvars
-*.tfstate
-*.tfstate.backup
-.terraform
-.terraform.lock.hcl
+.terraform*
+terraform.tf*

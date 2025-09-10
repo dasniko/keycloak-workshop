@@ -4,6 +4,10 @@ resource "keycloak_realm" "realm" {
   enabled             = true
   display_name        = "😊 Smiling Bookshop 📚"
   display_name_html   = "<div class=\"logo-text\"><span>😊 Smiling Bookshop 📚</span></div>"
+  
+  login_with_email_allowed    = true
+  default_signature_algorithm = "RS256"
+  
   smtp_server {
     host = "mail"
     port = "1025"
