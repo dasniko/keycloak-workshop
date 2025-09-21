@@ -8,10 +8,9 @@ terraform {
 }
 
 provider "keycloak" {
-    client_id     = "admin-cli"
+    client_id     = var.keycloak_client_id
+    client_secret = var.keycloak_client_secret
     url           = var.keycloak_url
-    username      = var.keycloak_admin_username
-    password      = var.keycloak_admin_password
     initial_login = false
     tls_insecure_skip_verify = true
 }
