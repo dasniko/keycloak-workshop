@@ -3,5 +3,5 @@ export PATH=$PATH:/opt/keycloak/bin:/opt/keycloak/benchmark/bin
 kcadm.sh config truststore --trustpass changeit /opt/keycloak/certs/truststore.jks
 kcadm.sh config credentials --server https://localhost:8443 --realm master --user admin --client admin-cli
 
-initialize-benchmark-entities.sh -r test-realm -c gatling -u user-0
-kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443 --realm-name=test-realm --log-http-on-failure
+initialize-benchmark-entities.sh
+kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443 --realm-name=test-realm
