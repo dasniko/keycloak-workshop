@@ -6,6 +6,7 @@
 
 * Texteditor (VS Code, Notepad++, etc.)
 * [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running on `localhost` (if necessary, grant local admin rights on the computer)  
+  _If_ you use Docker Desktop, please make sure that it is at least version 4.34 or hight!  
   _(License costs may apply for the use of Docker Desktop, please inform yourself! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
 * Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
@@ -32,6 +33,7 @@ docker pull axllent/mailpit:latest
 docker pull hashicorp/terraform:latest
 docker pull jaegertracing/all-in-one:latest
 docker pull ghcr.io/dasniko/flintstones_ldap:latest
+docker pull ghcr.io/dasniko/keycloak-benchmark:latest
 docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot
 ```
 
@@ -41,7 +43,7 @@ docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot
   https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
 * 📺 Status Quo of OAuth 2:  
   https://speakerdeck.com/dasniko/status-quo-of-oauth-2
-* 📖 Smiling Bookshop (Distributed application, based on Quarkus, Sprint Boot & React.JS):  
+* 📖 Smiling Bookshop (Distributed application, based on Quarkus, Spring Boot & React.JS):  
 https://github.com/dasniko/keycloak-bookshop-demo
 
 ## Links for systems used in this workshop
