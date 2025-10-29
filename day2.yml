@@ -2,6 +2,11 @@ volumes:
   kc-data:
     name: keycloak-workshop-pg-data
 
+networks:
+  kc:
+    name: keycloak-workshop
+    driver: bridge
+
 services:
   postgres:
     image: docker.io/postgres:17
@@ -12,11 +17,15 @@ services:
       - "5432:5432"
     volumes:
       - kc-data:/var/lib/postgresql/data
+    networks:
+      - kc
 
   mail:
     image: docker.io/axllent/mailpit:latest
     ports:
       - "8025:8025"
+    networks:
+      - kc
   
   keycloak:
     image: keycloak-workshop
@@ -41,13 +50,15 @@ services:
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
       KC_LOG_LEVEL: info,io.opentelemetry:error,io.quarkus.opentelemetry:error
+      KC_TRACING_SAMPLER_RATIO: "0.0"
       KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
       KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
-    deploy:
-      replicas: 2
-      endpoint_mode: dnsrr
     volumes:
       - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
+    deploy:
+      replicas: 2
+    networks:
+      - kc
     depends_on:
       - postgres
 
@@ -58,12 +69,16 @@ services:
       - ./certs:/etc/tls
     ports:
       - "8443:8443"
+    networks:
+      - kc
     depends_on:
       - keycloak
 
   ldap:
     image: ghcr.io/dasniko/flintstones_ldap:latest
     # bind user: cn=keycloak,dc=bedrock,dc=local
+    networks:
+      - kc
 
   bookshop:
     image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot
@@ -79,3 +94,5 @@ services:
       - "8083:8083"
     volumes:
       - ./bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json
+    networks:
+      - kc

@@ -4,6 +4,11 @@ volumes:
   jaeger-tmp:
     name: keycloak-workshop-jaeger-tmp
 
+networks:
+  kc:
+    name: keycloak-workshop
+    driver: bridge
+
 services:
   postgres:
     image: docker.io/postgres:17
@@ -14,11 +19,15 @@ services:
       - "5432:5432"
     volumes:
       - kc-data:/var/lib/postgresql/data
+    networks:
+      - kc
 
   mail:
     image: docker.io/axllent/mailpit:latest
     ports:
       - "8025:8025"
+    networks:
+      - kc
 
   lb:
     image: docker.io/nginx:alpine
@@ -28,6 +37,8 @@ services:
     ports:
       - "8443:8443"
       - "9000:9000"
+    networks:
+      - kc
     depends_on:
       - keycloak
 
@@ -38,11 +49,11 @@ services:
     environment:
       # tbc...
     volumes:
-      - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
       - ./keycloak-benchmark:/opt/keycloak/benchmark
     deploy:
       replicas: 2
-      endpoint_mode: dnsrr
+    networks:
+      - kc
     depends_on:
       - postgres
 
@@ -53,3 +64,5 @@ services:
       - "16686:16686"
     volumes:
       - jaeger-tmp:/tmp
+    networks:
+      - kc
