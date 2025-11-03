@@ -36,7 +36,8 @@ services:
       - ./certs:/etc/tls
     ports:
       - "8443:8443"
-      - "9000:9000"
+      - "9001:9001"
+      - "9002:9002"
     networks:
       - kc
     depends_on:

@@ -49,7 +49,7 @@ https://github.com/dasniko/keycloak-bookshop-demo
 ## Links for systems used in this workshop
 
 * Keycloak - https://localhost:8443
-  * Management Port - https://localhost:9000
+  * Management Port - https://localhost:9001 & https://localhost:9002
 * Bookshop - http://localhost:8081
   * Checkout - http://localhost:3000
 * Mailserver - http://localhost:8025
