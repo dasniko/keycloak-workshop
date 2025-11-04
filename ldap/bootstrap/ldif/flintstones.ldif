@@ -29,7 +29,7 @@ ou: users
 userPassword: fred
 uid: fred
 givenName: Fred
-mail: fred.flintstone@flintstones.com
+mail: fred.flintstone@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/fred.png
 
 dn: uid=wilma,ou=users,dc=bedrock,dc=local
@@ -45,7 +45,7 @@ ou: users
 userPassword: wilma
 uid: wilma
 givenName: Wilma
-mail: wilma.flintstone@flintstones.com
+mail: wilma.flintstone@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/wilma.png
 
 dn: uid=pebbles,ou=users,dc=bedrock,dc=local
@@ -61,7 +61,7 @@ ou: users
 userPassword: pebbles
 uid: pebbles
 givenName: Pebbles
-mail: pebbles.flintstone@flintstones.com
+mail: pebbles.flintstone@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/pebbles.png
 
 dn: uid=barney,ou=users,dc=bedrock,dc=local
@@ -77,7 +77,7 @@ ou: users
 userPassword: barney
 uid: barney
 givenName: Barney
-mail: barney.rubble@flintstones.com
+mail: barney.rubble@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/barney.png
 
 dn: uid=betty,ou=users,dc=bedrock,dc=local
@@ -93,7 +93,7 @@ ou: users
 userPassword: betty
 uid: betty
 givenName: Betty
-mail: betty.rubble@flintstones.com
+mail: betty.rubble@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/betty.png
 
 dn: uid=bambam,ou=users,dc=bedrock,dc=local
@@ -109,7 +109,7 @@ ou: users
 userPassword: bambam
 uid: bambam
 givenName: Bam Bam
-mail: bambam.rubble@flintstones.com
+mail: bambam.rubble@bedrock.com
 labeledURI: https://dasniko-public.s3.eu-central-1.amazonaws.com/bambam.png
 
 dn: cn=feuerstein,ou=groups,dc=bedrock,dc=local
