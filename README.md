@@ -6,7 +6,7 @@
 
 * Texteditor (VS Code, Notepad++, etc.)
 * [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running on `localhost` (if necessary, grant local admin rights on the computer)  
-  _If_ you use Docker Desktop, please make sure that it is at least version 4.34 or hight!  
+  _If_ you use Docker Desktop, please make sure that it is at least version 4.34 or higher!  
   _(License costs may apply for the use of Docker Desktop, please inform yourself! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
 * Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
@@ -49,7 +49,8 @@ https://github.com/dasniko/keycloak-bookshop-demo
 ## Links for systems used in this workshop
 
 * Keycloak - https://localhost:8443
-  * Management Port - https://localhost:9001 & https://localhost:9002
+  * Management Port Node 1: https://localhost:9001
+  * Management Port Node 2: https://localhost:9002
 * Bookshop - http://localhost:8081
   * Checkout - http://localhost:3000
 * Mailserver - http://localhost:8025
