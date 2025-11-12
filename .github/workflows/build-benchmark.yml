@@ -28,8 +28,8 @@ jobs:
         id: push
         uses: docker/build-push-action@v6
         with:
-          context: ./keycloak-benchmark
-          file: keycloak-benchmark/Dockerfile
+          context: ./benchmark
+          file: benchmark/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/dasniko/keycloak-benchmark:latest

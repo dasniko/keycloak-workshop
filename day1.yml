@@ -49,8 +49,6 @@ services:
     command: start --optimized
     environment:
       # tbc...
-    volumes:
-      - ./keycloak-benchmark:/opt/keycloak/benchmark
     deploy:
       replicas: 2
     networks:
