@@ -7,7 +7,6 @@ volumes:
 networks:
   kc:
     name: keycloak-workshop
-    driver: bridge
 
 services:
   postgres:

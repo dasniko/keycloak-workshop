@@ -5,7 +5,6 @@ volumes:
 networks:
   kc:
     name: keycloak-workshop
-    driver: bridge
 
 services:
   postgres:
@@ -87,7 +86,7 @@ services:
       WAITFORIT_TIMEOUT: '120'
       AUTH_SERVER_URL: http://lb:80/realms/bookshop
       SHOP_CLIENT_ID: shop
-      SHOP_CLIENT_SECRET: LuWb24brRRlkgt2ltd79BJEw6xV6FPpV
+      SHOP_CLIENT_SECRET: n/a
     ports:
       - "3000:3000"
       - "8081:8081"
