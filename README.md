@@ -62,7 +62,7 @@ https://github.com/dasniko/keycloak-bookshop-demo
 
 * Guides: https://www.keycloak.org/guides
 * Docs: https://www.keycloak.org/documentation
-* Admin CLI: https://www.keycloak.org/docs/latest/server_admin/index.html#admin-cli
+* Terraform Provider: https://registry.terraform.io/providers/keycloak/keycloak/latest/docs
 * Benchmark: https://www.keycloak.org/keycloak-benchmark/
 
 ### Common examples, extensions & links
@@ -75,21 +75,8 @@ https://github.com/dasniko
 https://github.com/dasniko/keycloak-extensions-demo
 * Testcontainer-Keycloak Project:
 https://github.com/dasniko/testcontainers-keycloak
-* Moderator @ Keycloak Discourse Forum:
-https://keycloak.discourse.group/
-
-### Extension recommendations
-
-* Keycloak Config CLI: https://github.com/adorsys/keycloak-config-cli
-* Keycloak Home IdP Discovery: https://github.com/sventorben/keycloak-home-idp-discovery - _meanwhile most functionality available in Keycloak via Organization feature_
-* Restrict Client Auth: https://github.com/sventorben/keycloak-restrict-client-auth - _more convenience than security_
-* Keycloakify (UI Templates): https://www.keycloakify.dev
-
-### Cluster-/Infinispan docs
-
-* Infinispan docs: https://infinispan.org/docs/15.0.x/
-* Embedded Infinispan / Cluster Transports: https://infinispan.org/docs/15.0.x/titles/embedding/embedding.html#cluster-transport
-* JGroups Discovery Protocols: http://jgroups.org/manual5/index.html#DiscoveryProtocols
+* Moderator @ Keycloak Community Forum:
+https://forum.keycloak.org/
 
 ### Standards, Specs & BCP Guides
 
