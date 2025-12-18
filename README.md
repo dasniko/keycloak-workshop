@@ -27,7 +27,7 @@ The following images are being used in the workshop and can (should!) be pulled 
 
 ```
 docker pull quay.io/keycloak/keycloak:26.4
-docker pull postgres:17
+docker pull postgres:17-alpine
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull hashicorp/terraform:latest
