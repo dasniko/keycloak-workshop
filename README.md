@@ -32,7 +32,7 @@ docker pull nginx:alpine
 docker pull axllent/mailpit:latest
 docker pull hashicorp/terraform:latest *
 docker pull jaegertracing/all-in-one:latest *
-docker pull ghcr.io/dasniko/flintstones_ldap:latest **
+docker pull ghcr.io/dasniko/flintstones-ldap:latest **
 docker pull ghcr.io/dasniko/keycloak-benchmark:latest *
 docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot **
 ```
