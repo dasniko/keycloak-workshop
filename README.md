@@ -30,12 +30,15 @@ docker pull quay.io/keycloak/keycloak:26.4
 docker pull postgres:17-alpine
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
-docker pull hashicorp/terraform:latest
-docker pull jaegertracing/all-in-one:latest
-docker pull ghcr.io/dasniko/flintstones_ldap:latest
-docker pull ghcr.io/dasniko/keycloak-benchmark:latest
-docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot
+docker pull hashicorp/terraform:latest *
+docker pull jaegertracing/all-in-one:latest *
+docker pull ghcr.io/dasniko/flintstones_ldap:latest **
+docker pull ghcr.io/dasniko/keycloak-benchmark:latest *
+docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot **
 ```
+
+\* = required only for day 1  
+** = required only for day 2+3
 
 ## Slides & examples
 
