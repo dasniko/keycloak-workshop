@@ -34,7 +34,7 @@ docker pull hashicorp/terraform:latest *
 docker pull jaegertracing/all-in-one:latest *
 docker pull ghcr.io/dasniko/flintstones-ldap:latest **
 docker pull ghcr.io/dasniko/keycloak-benchmark:latest *
-docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot **
+docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.10 **
 ```
 
 \* = required only for day 1  
@@ -54,8 +54,8 @@ https://github.com/dasniko/keycloak-bookshop-demo
 * Keycloak - https://localhost:8443
   * Management Port Node 1: https://localhost:9001
   * Management Port Node 2: https://localhost:9002
-* Bookshop - http://localhost:8081
-  * Checkout - http://localhost:3000
+* Bookshop - https://localhost:8081
+  * Checkout - https://localhost:3000
 * Mailserver - http://localhost:8025
 * Jaeger - http://localhost:16686
 

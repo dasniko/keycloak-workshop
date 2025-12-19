@@ -47,8 +47,8 @@ services:
       KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
+      KC_TLS_HOSTNAME_VERIFIER: ANY
       KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
-      KC_LOG_LEVEL: info,io.opentelemetry:error,io.quarkus.opentelemetry:error
       KC_TRACING_SAMPLER_RATIO: "0.0"
       KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
       KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
@@ -79,11 +79,12 @@ services:
       - kc
 
   bookshop:
-    image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.9-snapshot
+    image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.10
     command: [ "wait-for-it.sh", "keycloak-workshop-keycloak-1:8443", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '120'
       AUTH_SERVER_URL: http://lb:80/realms/bookshop
+      AUTH_SERVER_PUBLIC_URL: https://localhost:8443/realms/bookshop
       SHOP_CLIENT_ID: shop
       SHOP_CLIENT_SECRET: n/a
     ports:
