@@ -19,13 +19,6 @@ services:
     networks:
       - kc
 
-  mail:
-    image: docker.io/axllent/mailpit:latest
-    ports:
-      - "8025:8025"
-    networks:
-      - kc
-  
   keycloak:
     image: keycloak-workshop
     build: .
@@ -73,6 +66,13 @@ services:
     depends_on:
       - keycloak
 
+  mail:
+    image: docker.io/axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+    networks:
+      - kc
+  
   ldap:
     image: ghcr.io/dasniko/flintstones-ldap:latest
     networks:

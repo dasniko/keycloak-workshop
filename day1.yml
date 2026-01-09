@@ -21,12 +21,18 @@ services:
     networks:
       - kc
 
-  mail:
-    image: docker.io/axllent/mailpit:latest
-    ports:
-      - "8025:8025"
+  keycloak:
+    image: keycloak-workshop
+    build: .
+    command: start --optimized
+    environment:
+      # tbc...
+    deploy:
+      replicas: 2
     networks:
       - kc
+    depends_on:
+      - postgres
 
   lb:
     image: docker.io/nginx:alpine
@@ -41,19 +47,6 @@ services:
       - kc
     depends_on:
       - keycloak
-
-  keycloak:
-    image: keycloak-workshop
-    build: .
-    command: start --optimized
-    environment:
-      # tbc...
-    deploy:
-      replicas: 2
-    networks:
-      - kc
-    depends_on:
-      - postgres
 
   jaeger:
     image: docker.io/jaegertracing/all-in-one:latest
