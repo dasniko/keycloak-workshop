@@ -79,7 +79,7 @@ services:
       - kc
 
   bookshop:
-    image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.10
+    image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11
     command: [ "wait-for-it.sh", "keycloak-workshop-keycloak-1:8443", "--", "/deployments/entrypoint.sh" ]
     environment:
       WAITFORIT_TIMEOUT: '120'

@@ -1,6 +1,6 @@
 # Keycloak Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.4-blue)
+![](https://img.shields.io/badge/Keycloak-26.5-blue)
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ _Clone this repository (with `git clone https://github.com/dasniko/keycloak-work
 The following images are being used in the workshop and can (should!) be pulled before the workshop:
 
 ```
-docker pull quay.io/keycloak/keycloak:26.4
+docker pull quay.io/keycloak/keycloak:26.5
 docker pull postgres:17-alpine
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest
@@ -34,7 +34,7 @@ docker pull hashicorp/terraform:latest  (*)
 docker pull jaegertracing/all-in-one:latest  (*)
 docker pull ghcr.io/dasniko/keycloak-benchmark:latest  (*)
 docker pull ghcr.io/dasniko/flintstones-ldap:latest  (**)
-docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.10  (**)
+docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11  (**)
 ```
 
 (*) = required only for day 1  
