@@ -29,7 +29,7 @@ services:
       KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
       KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
     volumes:
-      - ./bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
+      - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json
     deploy:
       replicas: 2
     networks:
@@ -56,6 +56,6 @@ services:
       - "8081:8081"
       - "8083:8083"
     volumes:
-      - ./bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json
+      - ./various/bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json
     networks:
       - kc
