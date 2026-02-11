@@ -1,0 +1,5 @@
+{
+  "realm": "custom",
+  "displayName" : "${CUSTOM_REALM_DISPLAY_NAME}",
+  "enabled": true
+}

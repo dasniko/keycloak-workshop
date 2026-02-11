@@ -1,0 +1,13 @@
+{
+  "realm" : "custom",
+  "users" : [ {
+    "username" : "tester",
+    "enabled" : true,
+    "credentials" : [ {
+      "type" : "password",
+      "secretData" : "{\"value\":\"AttyFuYrwEdn868cStK3q3KMbYOwyqI3+uoCH++Jp24=\",\"salt\":\"pFUHVpBr+pQI5A3/Hitd9g==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "realmRoles" : [ "default-roles-custom" ]
+  } ]
+}
