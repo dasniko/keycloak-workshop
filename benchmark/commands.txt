@@ -1,3 +1,3 @@
-./kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443 --realm-name=test-realm
+./kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443
 
-./kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443 --realm-name=test-realm --measurement=300 --users-per-second=10 --concurrent-users=10 --users-per-realm=5 --clients-per-realm=3 --refresh-token-count=1 --user-think-time=1 --refresh-token-period=1
+./kcb.sh --scenario=keycloak.scenario.authentication.AuthorizationCode --server-url=https://localhost:8443 --measurement=300 --users-per-second=10 --concurrent-users=10 --users-per-realm=5 --clients-per-realm=3 --refresh-token-count=1 --user-think-time=1 --refresh-token-period=1

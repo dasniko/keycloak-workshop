@@ -19,5 +19,5 @@ variable "keycloak_url" {
 variable "realm_name" {
   description = "Name of the Keycloak Realm"
   type        = string
-  default     = "test-realm"
+  default     = "realm-0"
 }
