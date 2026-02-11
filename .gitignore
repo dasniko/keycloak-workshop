@@ -1,5 +1,6 @@
 _internal
 .idea
 export
+log
 .terraform*
 terraform.tf*
