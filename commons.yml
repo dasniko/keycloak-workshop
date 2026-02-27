@@ -14,11 +14,10 @@ services:
     environment:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: passw0rd
-      PGDATA: /var/lib/postgresql/data
     ports:
       - "5432:5432"
     volumes:
-      - kc-data:/var/lib/postgresql/data
+      - kc-data:/var/lib/postgresql
     networks:
       - kc
   
