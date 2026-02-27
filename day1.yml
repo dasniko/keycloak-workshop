@@ -5,6 +5,7 @@ services:
   keycloak:
     image: keycloak-workshop
     build: .
+    pull_policy: build
     command: start --optimized
     environment:
       # tbc...
