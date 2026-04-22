@@ -6,7 +6,6 @@ ENV KC_DB=postgres
 # tbc...
 
 # Copy build relevant resources
-COPY ./certs /opt/keycloak/certs
 COPY ./providers /opt/keycloak/providers
 COPY ./themes /opt/keycloak/themes
 

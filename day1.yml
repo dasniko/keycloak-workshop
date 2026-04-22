@@ -9,6 +9,8 @@ services:
     command: start --optimized
     environment:
       # tbc...
+    volumes:
+      - ./certs:/opt/keycloak/certs:ro
     deploy:
       replicas: 2
     networks:
