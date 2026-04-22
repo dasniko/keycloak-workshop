@@ -20,12 +20,22 @@ services:
       - kc-data:/var/lib/postgresql
     networks:
       - kc
-  
+
   lb:
-    image: docker.io/nginx:alpine
+    image: docker.io/traefik:v3
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.network=keycloak-workshop"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.file.filename=/etc/traefik/dynamic.yml"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:8443"
+      - "--entrypoints.kc1mgmt.address=:9001"
+      - "--entrypoints.kc2mgmt.address=:9002"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./certs:/etc/tls
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certs:/etc/tls:ro
+      - ./traefik-dynamic.yml:/etc/traefik/dynamic.yml:ro
     ports:
       - "8443:8443"
       - "9001:9001"
@@ -34,7 +44,7 @@ services:
       - kc
     depends_on:
       - keycloak
-  
+
   mail:
     image: docker.io/axllent/mailpit:latest
     ports:

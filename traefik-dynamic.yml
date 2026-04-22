@@ -1,0 +1,44 @@
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /etc/tls/localhost.crt
+        keyFile: /etc/tls/localhost.key
+
+http:
+  serversTransports:
+    keycloak-transport:
+      serverName: localhost
+      rootCAs:
+        - /etc/tls/rootCA.crt
+
+    mgmt-transport:
+      insecureSkipVerify: true
+
+  routers:
+    kc1-mgmt:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - kc1mgmt
+      service: kc1-mgmt-svc
+      tls: {}
+
+    kc2-mgmt:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - kc2mgmt
+      service: kc2-mgmt-svc
+      tls: {}
+
+  services:
+    kc1-mgmt-svc:
+      loadBalancer:
+        serversTransport: mgmt-transport
+        servers:
+          - url: "https://keycloak-workshop-keycloak-1:9000"
+
+    kc2-mgmt-svc:
+      loadBalancer:
+        serversTransport: mgmt-transport
+        servers:
+          - url: "https://keycloak-workshop-keycloak-2:9000"

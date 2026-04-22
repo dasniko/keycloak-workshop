@@ -33,6 +33,25 @@ services:
       - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json:ro
     deploy:
       replicas: 2
+    labels:
+      - "traefik.enable=true"
+      # HTTP router (plain HTTP frontend → HTTPS backend)
+      - "traefik.http.routers.keycloak-web.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.keycloak-web.entrypoints=web"
+      - "traefik.http.routers.keycloak-web.service=keycloak-svc"
+      # HTTPS router (TLS frontend → HTTPS backend)
+      - "traefik.http.routers.keycloak-tls.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.keycloak-tls.entrypoints=websecure"
+      - "traefik.http.routers.keycloak-tls.service=keycloak-svc"
+      - "traefik.http.routers.keycloak-tls.tls=true"
+      # Service: HTTPS backend with verified TLS, cookie-based sticky sessions
+      - "traefik.http.services.keycloak-svc.loadbalancer.server.port=8443"
+      - "traefik.http.services.keycloak-svc.loadbalancer.server.scheme=https"
+      - "traefik.http.services.keycloak-svc.loadbalancer.serversTransport=keycloak-transport@file"
+      - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie=true"
+      - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.name=TRAEFIK_STICKY"
+      - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.secure=true"
+      - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.httpOnly=true"
     networks:
       - kc
     depends_on:
