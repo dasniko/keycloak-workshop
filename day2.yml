@@ -52,6 +52,12 @@ services:
       - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.name=TRAEFIK_STICKY"
       - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.secure=true"
       - "traefik.http.services.keycloak-svc.loadbalancer.sticky.cookie.httpOnly=true"
+      # Health check on Keycloak management port
+      - "traefik.http.services.keycloak-svc.loadbalancer.healthcheck.path=/health/ready"
+      - "traefik.http.services.keycloak-svc.loadbalancer.healthcheck.port=9000"
+      - "traefik.http.services.keycloak-svc.loadbalancer.healthcheck.scheme=https"
+      - "traefik.http.services.keycloak-svc.loadbalancer.healthcheck.interval=10s"
+      - "traefik.http.services.keycloak-svc.loadbalancer.healthcheck.timeout=5s"
     networks:
       - kc
     depends_on:
