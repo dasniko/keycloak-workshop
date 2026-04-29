@@ -24,6 +24,7 @@ services:
   lb:
     image: docker.io/traefik:v3
     command:
+      - "--log.level=INFO"
       - "--providers.docker=true"
       - "--providers.docker.network=keycloak-workshop"
       - "--providers.docker.exposedbydefault=false"
