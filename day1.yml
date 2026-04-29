@@ -11,12 +11,14 @@ services:
       # tbc...
     volumes:
       - ./certs:/opt/keycloak/certs:ro
+    init: true
     deploy:
       replicas: 2
     networks:
       - kc
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   jaeger:
     image: docker.io/jaegertracing/all-in-one:latest
