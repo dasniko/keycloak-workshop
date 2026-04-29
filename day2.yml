@@ -32,8 +32,12 @@ services:
       - ./certs:/opt/keycloak/certs:ro
       - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json:ro
     init: true
-    deploy:
-      replicas: 2
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/9000' || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
     labels:
       - "traefik.enable=true"
       # HTTP router (plain HTTP frontend → HTTPS backend)
@@ -62,7 +66,8 @@ services:
     networks:
       - kc
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   ldap:
     image: ghcr.io/dasniko/flintstones-ldap:latest
@@ -71,9 +76,8 @@ services:
 
   bookshop:
     image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11
-    command: [ "wait-for-it.sh", "keycloak-workshop-keycloak-1:8443", "--", "/deployments/entrypoint.sh" ]
+    command: [ "wait-for-it.sh", "lb:80", "--", "/deployments/entrypoint.sh" ]
     environment:
-      WAITFORIT_TIMEOUT: '120'
       AUTH_SERVER_URL: http://lb:80/realms/bookshop
       AUTH_SERVER_PUBLIC_URL: https://localhost:8443/realms/bookshop
       SHOP_CLIENT_ID: shop
@@ -86,3 +90,6 @@ services:
       - ./various/bookshop-keycloak.json:/usr/share/nginx/html/keycloak.json:ro
     networks:
       - kc
+    depends_on:
+      keycloak:
+        condition: service_healthy
