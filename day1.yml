@@ -11,6 +11,7 @@ services:
       # tbc...
     volumes:
       - ./certs:/opt/keycloak/certs:ro
+    init: true
     deploy:
       replicas: 2
     networks:
