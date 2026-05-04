@@ -53,9 +53,9 @@ services:
 
   bookshop:
     image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11
-    command: [ "wait-for-it.sh", "lb:80", "--", "/deployments/entrypoint.sh" ]
+    command: [ "wait-for-it.sh", "lb:8080 ", "--", "/deployments/entrypoint.sh" ]
     environment:
-      AUTH_SERVER_URL: http://lb:80/realms/bookshop
+      AUTH_SERVER_URL: http://lb:8080/realms/bookshop
       AUTH_SERVER_PUBLIC_URL: https://localhost:8443/realms/bookshop
       SHOP_CLIENT_ID: shop
       SHOP_CLIENT_SECRET: n/a
