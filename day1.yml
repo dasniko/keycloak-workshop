@@ -12,6 +12,7 @@ services:
     volumes:
       - ./certs:/opt/keycloak/certs:ro
     init: true
+    stop_grace_period: 2s
     deploy:
       replicas: 2
     networks:
