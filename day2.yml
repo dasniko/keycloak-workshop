@@ -35,10 +35,10 @@ services:
     stop_grace_period: 2s
     healthcheck:
       test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/9000' || exit 1"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-      start_period: 10s
+      interval: 1s
+      timeout: 1s
+      retries: 60
+      start_period: 5s
     deploy:
       replicas: 2
     networks:
