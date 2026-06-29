@@ -28,6 +28,7 @@ services:
       KC_TRACING_SAMPLER_RATIO: "0.0"
       KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
       KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
+      KC_SPI_EVENTS_LISTENER__WORKFLOW_EVENT_LISTENER__STEP_RUNNER_TASK_INTERVAL: 30s
     volumes:
       - ./certs:/opt/keycloak/certs:ro
       - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json:ro
