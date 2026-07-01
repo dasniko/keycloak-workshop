@@ -38,8 +38,8 @@ docker pull ghcr.io/dasniko/flintstones-ldap:latest  (**)
 docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11  (**)
 ```
 
-(*) = required only for day 1  
-(**) = required only for day 2+3
+(*) = required only for deployment/operations day  
+(**) = required only for fundamentals days
 
 ## Slides & examples
 
