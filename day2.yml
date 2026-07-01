@@ -3,15 +3,15 @@ include:
 
 services:
   keycloak:
-    image: keycloak-workshop
-    build: .
-    command: start --optimized --import-realm
+    image: quay.io/keycloak/keycloak:26.6
+    command: start --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
       # HTTPS_PROXY: http://proxy:3128
       # NO_PROXY: 'localhost,bookshop,ldap,127.0.0.0/8'
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_DB: postgres
       KC_DB_URL_HOST: postgres
       KC_DB_URL_PORT: '5432'
       KC_DB_URL_DATABASE: keycloak
@@ -24,43 +24,37 @@ services:
       KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
       KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
       KC_TLS_HOSTNAME_VERIFIER: ANY
-      KC_LOG_CONSOLE_INCLUDE_TRACE: 'false'
-      KC_TRACING_SAMPLER_RATIO: "0.0"
       KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
       KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
       KC_SPI_EVENTS_LISTENER__WORKFLOW_EVENT_LISTENER__STEP_RUNNER_TASK_INTERVAL: 30s
+    ports:
+      - "8443:8443"
     volumes:
       - ./certs:/opt/keycloak/certs:ro
       - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json:ro
     init: true
     stop_grace_period: 2s
     healthcheck:
-      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/9000' || exit 1"]
+      test: [ "CMD-SHELL", "bash -c '</dev/tcp/localhost/8443' || exit 1" ]
       interval: 1s
       timeout: 1s
       retries: 60
-      start_period: 5s
-    deploy:
-      replicas: 2
+      start_period: 3s
     networks:
       - kc
     depends_on:
       postgres:
         condition: service_healthy
 
-  ldap:
-    image: ghcr.io/dasniko/flintstones-ldap:latest
-    networks:
-      - kc
-
   bookshop:
     image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.11
-    command: [ "wait-for-it.sh", "lb:8080 ", "--", "/deployments/entrypoint.sh" ]
+    command: [ "wait-for-it.sh", "keycloak:8443 ", "--", "/deployments/entrypoint.sh" ]
     environment:
-      AUTH_SERVER_URL: http://lb:8080/realms/bookshop
+      AUTH_SERVER_URL: https://keycloak:8443/realms/bookshop
       AUTH_SERVER_PUBLIC_URL: https://localhost:8443/realms/bookshop
       SHOP_CLIENT_ID: shop
       SHOP_CLIENT_SECRET: n/a
+      WAITFORIT_TIMEOUT: '120'
     ports:
       - "3000:3000"
       - "8081:8081"

@@ -1,8 +1,6 @@
 volumes:
   kc-data:
     name: keycloak-workshop-pg-data
-  jaeger-tmp:
-    name: keycloak-workshop-jaeger-tmp
 
 networks:
   kc:
@@ -27,19 +25,10 @@ services:
     networks:
       - kc
 
-  lb:
-    image: docker.io/nginx:alpine
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
-      - ./certs:/etc/certs:ro
-    ports:
-      - "8443:8443"
-      - "9001:9001"
-      - "9002:9002"
+  ldap:
+    image: ghcr.io/dasniko/flintstones-ldap:latest
     networks:
       - kc
-    depends_on:
-      - keycloak
 
   mail:
     image: docker.io/axllent/mailpit:latest
