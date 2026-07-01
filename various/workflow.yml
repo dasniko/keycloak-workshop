@@ -7,8 +7,9 @@ steps:
   - uses: notify-user
     after: 30s
     with:
+      subject: Deactivation notification
       message: You will be disabled and removed shortly if you do not authenticate!
   - uses: disable-user
     after: 30s
   - uses: delete-user
-    after: 1m
+    after: 30s
