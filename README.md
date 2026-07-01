@@ -8,6 +8,7 @@
 * [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2 installed and running on `localhost` (if necessary, grant local admin rights on the computer)  
   _If_ you use Docker Desktop, please make sure that it is at least version 4.34 or higher!  
   _(License costs may apply for the use of Docker Desktop, please inform yourself! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
+* No services running on `localhost` ports `3000`, `8025`, `8081`, `8083`, `8443`, `9001`, `9002` (optional: `5432`)
 * Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
 
