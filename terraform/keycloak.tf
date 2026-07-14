@@ -1,6 +1,6 @@
 # Realm
 resource "keycloak_realm" "realm" {
-  realm   = var.realm_name
+  realm   = "realm-0"
   enabled = true
 }
 
@@ -91,4 +91,10 @@ resource "keycloak_user" "user-4" {
   initial_password {
     value    = "user-4-password"
   }
+}
+
+# Outputs
+output "realm_id" {
+  description = "ID of the created realm"
+  value       = keycloak_realm.realm.id
 }
