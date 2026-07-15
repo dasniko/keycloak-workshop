@@ -40,11 +40,5 @@ services:
     command: --log-level=error
     ports:
       - "16686:16686"
-    volumes:
-      - jaeger-tmp:/tmp
     networks:
       - kc
-
-volumes:
-  jaeger-tmp:
-    name: keycloak-workshop-jaeger-tmp
