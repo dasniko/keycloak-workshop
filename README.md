@@ -12,15 +12,11 @@
 * Internet access (check proxy/firewall/VPN configurations etc. if necessary)
 * Browser
 
-_Clone this repository (with `git clone https://github.com/dasniko/keycloak-workshop.git`) or download it via the following link and unzip it._  
+_Clone this repository (with `git clone https://github.com/dasniko/keycloak-workshop.git`) or download it via the following link and unzip it._
 
-> 🚨 Please make sure that your local folder you clone the repo to, is called `keycloak-workshop`!
-
-## Download workshop resources
+### Download workshop resources
 
 👉 https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
-
-> 🚨 If you unzip it, make sure the folder is called `keycloak-workshop`, not _keycloak-workshop-main_!
 
 ## Docker images
 
