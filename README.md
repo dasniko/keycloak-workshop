@@ -1,6 +1,6 @@
 # Keycloak Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.6-blue)
+![](https://img.shields.io/badge/Keycloak-26.7-blue)
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
 The following images are being used in the workshop and can (should!) be pulled before the workshop:
 
 ```
-docker pull quay.io/keycloak/keycloak:26.6
+docker pull quay.io/keycloak/keycloak:26.7
 docker pull postgres:18-alpine
 docker pull nginx:alpine
 docker pull axllent/mailpit:latest

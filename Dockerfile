@@ -1,4 +1,4 @@
-ARG KEYCLOAK_BASE_IMAGE=quay.io/keycloak/keycloak:26.6
+ARG KEYCLOAK_BASE_IMAGE=quay.io/keycloak/keycloak:26.7
 FROM ${KEYCLOAK_BASE_IMAGE} AS builder
 
 # Configure build properties

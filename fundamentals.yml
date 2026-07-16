@@ -5,7 +5,7 @@ include:
 
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:26.6
+    image: quay.io/keycloak/keycloak:26.7
     command: start --import-realm
     environment:
       # HTTP_PROXY: http://proxy:3128
