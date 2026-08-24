@@ -37,6 +37,13 @@ docker pull ghcr.io/dasniko/flintstones-ldap:latest
 docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.12
 ```
 
+💡 Alternatively, run the following script, which pulls all the above images for you:
+
+```
+./various/update-images.sh     # macOS/Linux
+various\update-images.bat      # Windows
+```
+
 ## Slides & examples
 
 * 📺 OAuth2, OIDC & JWT Basics:  
