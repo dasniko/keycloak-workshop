@@ -1,0 +1,16 @@
+{
+  "clientId": "device-authz-code",
+  "name": "Device Authorization Code Grant Demo",
+  "enabled": true,
+  "standardFlowEnabled": false,
+  "implicitFlowEnabled": false,
+  "clientAuthenticatorType": "client-secret",
+  "secret": "JOFrDVtIpU2cwyK8AnGOoR2gAnqUIEkB",
+  "protocol": "openid-connect",
+  "attributes": {
+    "oauth2.device.authorization.grant.enabled": "true",
+    "client.use.lightweight.access.token.enabled": "true"
+  },
+  "authenticationFlowBindingOverrides": {},
+  "fullScopeAllowed": false
+}
