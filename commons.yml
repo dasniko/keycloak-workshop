@@ -28,6 +28,18 @@ services:
     image: ghcr.io/dasniko/flintstones-ldap:latest
     networks:
       - kc
+  ldap_admin:
+    profiles:
+      - ldapui
+    image: osixia/phpldapadmin:latest
+    command: --loglevel warning
+    ports:
+      - "8090:80"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap
+      PHPLDAPADMIN_HTTPS: 'false'
+    networks:
+      - kc
 
   mail:
     image: docker.io/axllent/mailpit:latest
