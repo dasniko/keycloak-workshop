@@ -10,7 +10,11 @@ services:
     pull_policy: build
     command: start --optimized
     environment:
-      # tbc...
+      # Database https://www.keycloak.org/server/db
+      # Proxy https://www.keycloak.org/server/reverseproxy
+      # Hostname https://www.keycloak.org/server/hostname
+      # TLS https://www.keycloak.org/server/enabletls
+      # Bootstrap Admin Access https://www.keycloak.org/server/bootstrap-admin-recovery
     volumes:
       - ./certs:/opt/keycloak/certs:ro
     init: true

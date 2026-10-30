@@ -1,6 +1,7 @@
 # Realm
 resource "keycloak_realm" "realm" {
   realm   = "realm-0"
+  display_name = "Benchmark Realm"
   enabled = true
 }
 
