@@ -4,6 +4,9 @@
   "enabled": true,
   "users" : [ {
     "username" : "tester",
+    "email": "tester@keycloak.de",
+    "firstName": "Theo",
+    "lastName": "Tester",
     "enabled" : true,
     "credentials" : [ {
       "type" : "password",
