@@ -80,6 +80,8 @@ https://github.com/dasniko
 https://github.com/dasniko/keycloak-extensions-demo
 * Testcontainer-Keycloak Project:
 https://github.com/dasniko/testcontainers-keycloak
+* Keycloak Theme Editor (by [kathari00](https://github.com/kathari00)):
+https://keycloak-theme-editor.org/
 
 ## Standards, Specs & BCP Guides
 
