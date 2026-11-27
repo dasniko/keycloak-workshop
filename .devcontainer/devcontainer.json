@@ -1,0 +1,32 @@
+{
+  "name": "Keycloak Workshop",
+  // Pinned: "ubuntu" now points to 26.04 (resolute), for which the docker-in-docker feature has no moby packages.
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // Minimum only: participants may pick a bigger machine (4 cores recommended, see README).
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "postStartCommand": "bash .devcontainer/kc.sh up",
+  "forwardPorts": [8080, 8025, 9000],
+  "portsAttributes": {
+    "8080": {
+      "label": "Keycloak",
+      "onAutoForward": "notify"
+    },
+    "9000": {
+      "label": "Keycloak Management",
+      "onAutoForward": "silent"
+    },
+    "8025": {
+      "label": "Mailpit",
+      "onAutoForward": "silent"
+    },
+    "5432": {
+      "label": "Postgres",
+      "onAutoForward": "silent"
+    }
+  }
+}

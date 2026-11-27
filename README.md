@@ -4,62 +4,26 @@
 
 ## Prerequisites
 
-* Texteditor (VS Code, Notepad++, etc.)
-* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) V2+ installed and running on `localhost` (if necessary, grant local admin rights on the computer)  
-  _If_ you use Docker Desktop, please make sure that it is at least version 4.34 or higher!  
-  _(License costs may apply for the use of Docker Desktop, please inform yourself! Depending on the platform, Docker Desktop is not absolutely necessary for the operation of Docker. Support for Docker cannot be provided as part of the training and preparation for it! Podman may also work, but no support can be provided for this!)_
-* No services running on `localhost` ports `3000`, `8025`, `8081`, `8083`, `8443`, `9001`, `9002`
-* Internet access, also from within containers _(⚠️ check Proxy/Firewall/VPN configurations etc. if necessary!)_
-* Browser
+* A personal [GitHub](https://github.com) account (the workshop runs in [GitHub Codespaces](https://github.com/features/codespaces), no local Docker installation needed)
+* Enough free Codespaces quota, see below
+* A current browser
 
-## Clone or download this repository
+## Start your codespace
 
-Clone this repository (preferred):
+1. On the repository page, click _Code_ → _Codespaces_ → _..._ → _New with options..._
+2. Select the branch `codespaces` and a **4-core** machine type (recommended; 2-core works, but Keycloak starts noticeably slower).
+3. Wait until the stack is up (Keycloak, Postgres, LDAP and Mailpit start automatically), then open the _Ports_ tab and click the _Keycloak_ (8080) or _Mailpit_ (8025) address.  
+   `.devcontainer/kc.sh url` prints the URLs as well.
 
-    git clone https://github.com/dasniko/keycloak-workshop.git
+Helper script in the codespace terminal: `.devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]}`
 
-or download and unzip it:
-https://github.com/dasniko/keycloak-workshop/archive/refs/heads/main.zip
-
-## Docker images
-
-The following images are being used in the workshop and can (should!) be pulled before the workshop:
-
-```
-docker pull quay.io/keycloak/keycloak:26.8
-docker pull postgres:18-alpine
-docker pull nginx:alpine
-docker pull axllent/mailpit:latest
-docker pull hashicorp/terraform:latest
-docker pull jaegertracing/all-in-one:latest
-docker pull ghcr.io/dasniko/keycloak-benchmark:latest
-docker pull ghcr.io/dasniko/flintstones-ldap:latest
-docker pull ghcr.io/dasniko/keycloak-bookshop-demo:0.0.12
-```
-
-💡 Alternatively, run the following script, which pulls all the above images for you:
-
-```
-./various/update-images.sh     # macOS/Linux
-various\update-images.bat      # Windows
-```
+⚠️ **Free quota:** personal accounts include 120 core hours per month (GitHub Pro: 180). A 4-core codespace uses 4 core hours per hour, so two workshop days of ~8 hours take about 64 core hours.
+**Stop your codespace at the end of each day** (_Codespaces_ → _..._ → _Stop codespace_), and delete it after the workshop to avoid storage usage.
 
 ## Slides & examples
 
 * 📺 OAuth2, OIDC & JWT Basics:  
   https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
-* 📖 Smiling Bookshop (Distributed application, based on Quarkus, Spring Boot & React.JS):  
-https://github.com/dasniko/keycloak-bookshop-demo
-
-## Links for systems used in this workshop
-
-* Keycloak - https://localhost:8443
-  * Management Port Node 1: https://localhost:9001
-  * Management Port Node 2: https://localhost:9002
-* Bookshop - https://localhost:8081
-  * Checkout - https://localhost:3000
-* Mailserver - http://localhost:8025
-* Jaeger - http://localhost:16686
 
 ## More links
 
@@ -67,8 +31,6 @@ https://github.com/dasniko/keycloak-bookshop-demo
 
 * Guides: https://www.keycloak.org/guides
 * Docs: https://www.keycloak.org/documentation
-* Terraform Provider: https://registry.terraform.io/providers/keycloak/keycloak/latest/docs
-* Benchmark: https://www.keycloak.org/keycloak-benchmark/
 
 ### Common examples, extensions & links
 

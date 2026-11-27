@@ -1,0 +1,119 @@
+name: keycloak-workshop
+
+# Public URL of Keycloak, as the browser reaches it through the Codespaces port forwarding (TLS is terminated by the Codespaces proxy).
+x-public-url: &public-url "https://${CODESPACE_NAME:?not running in a Codespace}-8080.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:?not running in a Codespace}"
+
+services:
+  keycloak:
+    image: keycloak-workshop
+    build: .
+    pull_policy: build
+    command: start --optimized --import-realm
+    environment:
+      # Bootstrap Admin Access https://www.keycloak.org/server/bootstrap-admin-recovery
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_CLIENT_ID: terraform
+      KC_BOOTSTRAP_ADMIN_CLIENT_SECRET: t3rr4f0rm
+      # Database https://www.keycloak.org/server/db
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_PORT: '5432'
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: passw0rd
+      # Hostname https://www.keycloak.org/server/hostname
+      KC_HOSTNAME: *public-url
+      # KC_HOSTNAME_ADMIN: https://keycloak-admin
+      # KC_HOSTNAME_STRICT: 'false'
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
+      # Proxy https://www.keycloak.org/server/reverseproxy
+      KC_PROXY_HEADERS: xforwarded
+      KC_HTTP_ENABLED: 'true'
+      # TLS https://www.keycloak.org/server/enabletls
+      # KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/localhost.crt
+      # KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/localhost.key
+      KC_TRUSTSTORE_PATHS: /opt/keycloak/certs/rootCA.crt
+      KC_TLS_HOSTNAME_VERIFIER: ANY
+      # Logs https://www.keycloak.org/server/logging
+      # KC_LOG: console,file,syslog
+      # Event Metrics https://www.keycloak.org/observability/event-metrics
+      KC_EVENT_METRICS_USER_EVENTS: login,logout,refresh_token
+      KC_EVENT_METRICS_USER_TAGS: realm,clientId,idp
+      # Tracing https://www.keycloak.org/observability/tracing
+      # KC_TRACING_ENDPOINT: http://jaeger:4317
+      # KC_TRACING_SAMPLER_RATIO: '0.1'
+      # Providers https://www.keycloak.org/server/all-provider-config
+      KC_SPI_EVENTS_LISTENER__EMAIL__INCLUDE_EVENTS: login_error,update_credential,remove_credential,user_disabled_by_temporary_lockout
+      KC_SPI_EVENTS_LISTENER__JBOSS_LOGGING__SUCCESS_LEVEL: info
+      KC_SPI_EVENTS_LISTENER__WORKFLOW_EVENT_LISTENER__STEP_RUNNER_TASK_INTERVAL: 30s
+    ports:
+      - '9000:9000' # management interface only, everything else goes through nginx
+    volumes:
+      - ./certs:/opt/keycloak/certs:ro
+      - ./various/bookshop-realm.json:/opt/keycloak/data/import/bookshop-realm.json:ro
+      - ./providers:/opt/keycloak/providers:ro
+      - ./themes:/opt/keycloak/themes:ro
+    init: true
+    stop_grace_period: 2s
+    healthcheck:
+      test: [ "CMD-SHELL", "bash -c '</dev/tcp/localhost/8080' || exit 1" ]
+      interval: 2s
+      timeout: 1s
+      retries: 60
+    networks:
+      - kc
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # Restores the Origin header rewritten by the Codespaces port forwarding proxy, see nginx/keycloak.conf.template.
+  proxy:
+    image: docker.io/nginx:alpine
+    environment:
+      KC_PUBLIC_URL: *public-url
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/keycloak.conf.template:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - kc
+    depends_on:
+      keycloak:
+        condition: service_healthy
+
+  postgres:
+    image: docker.io/postgres:18-alpine
+    environment:
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: passw0rd
+    ports:
+      - "5432:5432"
+    volumes:
+      - kc-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak"]
+      interval: 1s
+      timeout: 1s
+      retries: 30
+    networks:
+      - kc
+
+  ldap:
+    image: ghcr.io/dasniko/flintstones-ldap:latest
+    networks:
+      - kc
+
+  mail:
+    image: docker.io/axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+    networks:
+      - kc
+
+volumes:
+  kc-data:
+    name: keycloak-workshop-pg-data
+
+networks:
+  kc:
+    name: keycloak-workshop

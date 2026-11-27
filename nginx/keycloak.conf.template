@@ -1,0 +1,38 @@
+# Reverse proxy in front of Keycloak for GitHub Codespaces.
+#
+# The Codespaces port forwarding proxy rewrites the Host header to localhost:8080 and the Origin header
+# of same-origin requests to https://localhost:8080. Keycloak then rejects CORS-checked requests
+# (token endpoint, admin and account REST APIs) with 403 "Invalid origin".
+#
+# KC_PUBLIC_URL (env var, substituted by the nginx image's envsubst template mechanism) is the public URL
+# of the codespace port. From it we
+# - restore the Origin header of requests rewritten by the Codespaces proxy, and
+# - send X-Forwarded-* headers, so that Keycloak (proxy-headers=xforwarded) sees the public request URL.
+#   Clients without explicit web origins (e.g. account-console) rely on that for their same-origin check.
+
+map $http_origin $kc_origin {
+    ~^https?://localhost:8080$  ${KC_PUBLIC_URL};
+    default                     $http_origin;
+}
+
+map ${KC_PUBLIC_URL} $kc_public_host {
+    ~^https://(?<public_host>[^/:]+)  $public_host;
+}
+
+server {
+    listen 8080;
+
+    location / {
+        proxy_pass              http://keycloak:8080;
+        proxy_set_header        Host              $kc_public_host;
+        proxy_set_header        Origin            $kc_origin;
+        proxy_set_header        X-Forwarded-Host  $kc_public_host;
+        proxy_set_header        X-Forwarded-Proto https;
+        proxy_set_header        X-Forwarded-Port  443;
+        proxy_set_header        X-Forwarded-For   $proxy_add_x_forwarded_for;
+        # Keycloak responses carry large headers (cookies)
+        proxy_buffer_size       128k;
+        proxy_buffers           4 256k;
+        proxy_busy_buffers_size 256k;
+    }
+}
