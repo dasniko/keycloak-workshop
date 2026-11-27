@@ -33,9 +33,16 @@ Unneeded resources (bookshop, benchmark, terraform, ops/cluster setup, …) were
 - **Bookshop** (`ghcr.io/dasniko/keycloak-bookshop-demo:0.0.13`, HTTP-only mode with `HTTP_ONLY=true`): talks to Keycloak internally via `http://keycloak:8080`, bypassing nginx.
   The `shop` and `checkout` clients are created manually in realm `bookshop`; then `SHOP_CLIENT_SECRET` is set in `docker-compose.yml`.
   The shop builds its `redirect_uri` from `X-Forwarded-Host`, which the Codespaces proxy sets to the public host (measured 2026-11-27).
-- **Port 8083 (cart) is made public by `kc.sh up`** (`gh codespace ports visibility`): checkout calls it cross-origin with an `Authorization` header,
+- **Ports 8080 (Keycloak) and 8083 (cart) are made public by `kc.sh up`** (`gh codespace ports visibility`). 8083: checkout calls it cross-origin with an `Authorization` header,
   and the CORS preflight carries no GitHub auth cookie, so a private port would redirect it to the GitHub login.
-  Not yet verified in a codespace; whether Keycloak (8080) can stay private for checkout's token requests has not been tested either.
+  Verified in a codespace (2026-11-27): `kc.sh up` sets 8083 public about 95 s after start.
+- **Checkout needs port 8080 (Keycloak) public as well** (verified 2026-11-27): keycloak-js loads `…/3p-cookies/step1.html` in a hidden iframe on init.
+  On a private port the proxy redirects it to the GitHub login, which can't be framed (`ERR_BLOCKED_BY_RESPONSE`), so checkout hangs at "Loading application…".
+  On a public port, browser requests first get the "Codespaces Access Port" warning page (once per codespace session);
+  the iframe can't confirm it, so the warning has to be confirmed once by opening the Keycloak URL directly. After that, the checkout login works.
+  Public 8080 also exposes the Keycloak admin console (`admin/admin`).
+- End-to-end test in a codespace (2026-11-27) with manually created `shop`/`checkout` clients (audience mappers `pim`, `cart`) worked:
+  checkout login, shop SSO, book list from pim, add to cart, cart shown in checkout.
 
 ### Rejected approaches
 

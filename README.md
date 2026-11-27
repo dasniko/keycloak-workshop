@@ -12,8 +12,11 @@
 
 1. On the repository page, click _Code_ → _Codespaces_ → _..._ → _New with options..._
 2. Select the branch `codespaces` and a **4-core** machine type (recommended; 2-core works, but Keycloak starts noticeably slower).
-3. Wait until the stack is up (Keycloak, Postgres, LDAP and Mailpit start automatically), then open the _Ports_ tab and click the _Keycloak_ (8080) or _Mailpit_ (8025) address.  
+3. Wait until the stack is up (Keycloak, Postgres, LDAP, Mailpit and the bookshop start automatically), then open the _Ports_ tab and click the _Keycloak_ (8080) or _Mailpit_ (8025) address.  
    `.devcontainer/kc.sh url` prints the URLs as well.
+4. Open the _Keycloak_ (8080) address once directly in the browser and confirm GitHub's warning page with _Continue_.
+   Keycloak and the bookshop cart (8083) are made public automatically, because the bookshop checkout calls them from the browser.
+   Public ports show this warning once per codespace session, and the checkout can't confirm it on its own.
 
 Helper script in the codespace terminal: `.devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]}`
 
@@ -24,13 +27,17 @@ Helper script in the codespace terminal: `.devcontainer/kc.sh {up|down|restart|l
 
 * 📺 OAuth2, OIDC & JWT Basics:  
   https://speakerdeck.com/dasniko/oauth2-oidc-and-jwt-important-basics
+* 📖 Smiling Bookshop (Distributed application, based on Quarkus, Spring Boot & React.JS):  
+  https://github.com/dasniko/keycloak-bookshop-demo
 
-## More links
+## Links
 
 ### Keycloak docs
 
 * Guides: https://www.keycloak.org/guides
 * Docs: https://www.keycloak.org/documentation
+* Terraform Provider: https://registry.terraform.io/providers/keycloak/keycloak/latest/docs
+* Benchmark: https://www.keycloak.org/keycloak-benchmark/
 
 ### Common examples, extensions & links
 
@@ -42,6 +49,8 @@ https://github.com/dasniko
 https://github.com/dasniko/keycloak-extensions-demo
 * Testcontainer-Keycloak Project:
 https://github.com/dasniko/testcontainers-keycloak
+* Keycloak Theme Editor (by [kathari00](https://github.com/kathari00)):
+https://keycloak-theme-editor.org/
 
 ## Standards, Specs & BCP Guides
 

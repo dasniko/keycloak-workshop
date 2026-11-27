@@ -23,16 +23,19 @@ wait_for_docker() {
   exit 1
 }
 
-# The checkout app calls the cart (8083) cross-origin with an Authorization header. The CORS preflight carries no
-# GitHub auth cookie, so a private port would answer it with a redirect to the GitHub login. Hence 8083 must be public.
-# The port is only known to the Codespaces proxy once it is forwarded, so retry for a while.
-make_cart_public() {
+# The bookshop checkout (browser) needs two ports public:
+# - 8083 (cart): called cross-origin with an Authorization header; the CORS preflight carries no GitHub auth cookie,
+#   so a private port would answer it with a redirect to the GitHub login.
+# - 8080 (Keycloak): keycloak-js loads a hidden iframe from Keycloak on init; on a private port it is redirected
+#   to the GitHub login, which can't be framed, and checkout hangs.
+# The ports are only known to the Codespaces proxy once they are forwarded, so retry for a while.
+make_ports_public() {
   for _ in $(seq 1 30); do
-    gh codespace ports visibility 8083:public -c "${CODESPACE_NAME:?not running in a Codespace}" >/dev/null 2>&1 && return 0
+    gh codespace ports visibility 8080:public 8083:public -c "${CODESPACE_NAME:?not running in a Codespace}" >/dev/null 2>&1 && return 0
     sleep 2
   done
-  echo "Could not make port 8083 public, the bookshop checkout won't reach the cart." >&2
-  echo "Set it manually: Ports tab -> 8083 -> Port Visibility -> Public" >&2
+  echo "Could not make ports 8080 and 8083 public, the bookshop checkout won't work." >&2
+  echo "Set them manually: Ports tab -> 8080 / 8083 -> Port Visibility -> Public" >&2
 }
 
 print_urls() {
@@ -49,7 +52,7 @@ case "${1:-}" in
   up)
     wait_for_docker
     compose up -d --wait
-    make_cart_public
+    make_ports_public
     print_urls
     ;;
   down)
