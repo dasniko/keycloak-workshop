@@ -3,14 +3,16 @@
   // Pinned: "ubuntu" now points to 26.04 (resolute), for which the docker-in-docker feature has no moby packages.
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    // gh is used by kc.sh to make the cart port (8083) public.
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   // Minimum only: participants may pick a bigger machine (4 cores recommended, see README).
   "hostRequirements": {
     "cpus": 2
   },
   "postStartCommand": "bash .devcontainer/kc.sh up",
-  "forwardPorts": [8080, 8025, 9000],
+  "forwardPorts": [8080, 8025, 9000, 8081, 3000, 8083],
   "portsAttributes": {
     "8080": {
       "label": "Keycloak",
@@ -22,6 +24,18 @@
     },
     "8025": {
       "label": "Mailpit",
+      "onAutoForward": "silent"
+    },
+    "8081": {
+      "label": "Bookshop Shop",
+      "onAutoForward": "silent"
+    },
+    "3000": {
+      "label": "Bookshop Checkout",
+      "onAutoForward": "silent"
+    },
+    "8083": {
+      "label": "Bookshop Cart",
       "onAutoForward": "silent"
     },
     "5432": {

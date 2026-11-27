@@ -2,6 +2,10 @@ name: keycloak-workshop
 
 # Public URL of Keycloak, as the browser reaches it through the Codespaces port forwarding (TLS is terminated by the Codespaces proxy).
 x-public-url: &public-url "https://${CODESPACE_NAME:?not running in a Codespace}-8080.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:?not running in a Codespace}"
+# Public URLs of the bookshop apps (same scheme as above, one hostname per forwarded port).
+x-shop-url: &shop-url "https://${CODESPACE_NAME}-8081.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+x-checkout-url: &checkout-url "https://${CODESPACE_NAME}-3000.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+x-cart-url: &cart-url "https://${CODESPACE_NAME}-8083.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
 
 services:
   keycloak:
@@ -75,6 +79,30 @@ services:
       - "8080:8080"
     volumes:
       - ./nginx/keycloak.conf.template:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - kc
+    depends_on:
+      keycloak:
+        condition: service_healthy
+
+  # https://github.com/dasniko/keycloak-bookshop-demo, HTTP-only mode for Codespaces.
+  # The clients "shop" and "checkout" are created manually in the realm "bookshop";
+  # afterwards set SHOP_CLIENT_SECRET and restart the bookshop (docker compose up -d bookshop).
+  bookshop:
+    image: ghcr.io/dasniko/keycloak-bookshop-demo:0.0.13
+    environment:
+      HTTP_ONLY: 'true'
+      AUTH_SERVER_URL: http://keycloak:8080/realms/bookshop
+      AUTH_SERVER_PUBLIC_URL: "https://${CODESPACE_NAME}-8080.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/realms/bookshop"
+      SHOP_PUBLIC_URL: *shop-url
+      CHECKOUT_PUBLIC_URL: *checkout-url
+      CART_PUBLIC_URL: *cart-url
+      SHOP_CLIENT_ID: shop
+      SHOP_CLIENT_SECRET: n/a
+    ports:
+      - "3000:3000"
+      - "8081:8081"
+      - "8083:8083"
     networks:
       - kc
     depends_on:

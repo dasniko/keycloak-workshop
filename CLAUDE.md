@@ -30,6 +30,13 @@ Unneeded resources (bookshop, benchmark, terraform, ops/cluster setup, …) were
 - **Base image pinned to `ubuntu-24.04`**: `base:ubuntu` resolves to 26.04 (resolute), where docker-in-docker cannot install moby;
   the codespace then silently falls back to a recovery container (alpine, no Docker).
 
+- **Bookshop** (`ghcr.io/dasniko/keycloak-bookshop-demo:0.0.13`, HTTP-only mode with `HTTP_ONLY=true`): talks to Keycloak internally via `http://keycloak:8080`, bypassing nginx.
+  The `shop` and `checkout` clients are created manually in realm `bookshop`; then `SHOP_CLIENT_SECRET` is set in `docker-compose.yml`.
+  The shop builds its `redirect_uri` from `X-Forwarded-Host`, which the Codespaces proxy sets to the public host (measured 2026-11-27).
+- **Port 8083 (cart) is made public by `kc.sh up`** (`gh codespace ports visibility`): checkout calls it cross-origin with an `Authorization` header,
+  and the CORS preflight carries no GitHub auth cookie, so a private port would redirect it to the GitHub login.
+  Not yet verified in a codespace; whether Keycloak (8080) can stay private for checkout's token requests has not been tested either.
+
 ### Rejected approaches
 
 - `protocol: https` port forwarding to a TLS-serving Keycloak: dropped together with TLS in Keycloak.
