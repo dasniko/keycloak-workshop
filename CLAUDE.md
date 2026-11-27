@@ -3,7 +3,9 @@
 ## Branch `codespaces`
 
 Tryout of running the workshop's Keycloak in GitHub Codespaces, used only through the browser (no local Docker).
-Unneeded resources (bookshop, benchmark, terraform, ops/cluster setup, …) were removed in this branch.
+Unneeded resources (benchmark, ops/cluster setup, …) were removed in this branch.
+Terraform (`terraform/`, `tf.sh`, from `main`) runs in the `keycloak-workshop` network and talks to `http://keycloak:8080` directly
+(no browser, no Origin header, so nginx is not needed).
 
 ### Setup
 
