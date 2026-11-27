@@ -18,10 +18,23 @@
    Keycloak and the bookshop cart (8083) are made public automatically, because the bookshop checkout calls them from the browser.
    Public ports show this warning once per codespace session, and the checkout can't confirm it on its own.
 
-Helper script in the codespace terminal: `.devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]}`
+Helper script in the codespace terminal: `.devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]|export}`
 
 ⚠️ **Free quota:** personal accounts include 120 core hours per month (GitHub Pro: 180). A 4-core codespace uses 4 core hours per hour, so two workshop days of ~8 hours take about 64 core hours.
 **Stop your codespace at the end of each day** (_Codespaces_ → _..._ → _Stop codespace_), and delete it after the workshop to avoid storage usage.
+
+## At the end of the workshop
+
+The codespace is deleted at some point, so take your work with you:
+
+1. Run `.devcontainer/kc.sh export` in the codespace terminal.
+   It exports all realms (including users) to `export/` and packs all workshop files into `workshop-backup.tar.gz`.
+   Keycloak is stopped for a few seconds during the export.
+2. Download `workshop-backup.tar.gz`: _Explorer_ → right-click the file → _Download..._
+3. Delete the codespace.
+
+The exported realm files can be imported into any Keycloak with `--import-realm` (put them into `/opt/keycloak/data/import`).  
+ℹ️ The export contains password hashes and client secrets of your workshop realms.
 
 ## Slides & examples
 

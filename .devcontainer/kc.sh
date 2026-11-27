@@ -2,7 +2,7 @@
 #
 # kc.sh - manage the workshop stack (docker-compose.yml) inside GitHub Codespaces.
 #
-# Usage: .devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]}
+# Usage: .devcontainer/kc.sh {up|down|restart|logs [service]|status|url|db [psql args]|export}
 #
 
 set -euo pipefail
@@ -36,6 +36,31 @@ make_ports_public() {
   done
   echo "Could not make ports 8080 and 8083 public, the bookshop checkout won't work." >&2
   echo "Set them manually: Ports tab -> 8080 / 8083 -> Port Visibility -> Public" >&2
+}
+
+BACKUP_FILE=workshop-backup.tar.gz
+
+# Exports all realms (incl. users) to ./export and packs the whole workspace into one archive to download.
+# Keycloak is stopped during the export, so the export doesn't run concurrently with the server on the same database.
+# --optimized is required: the image is pre-built (KC_DB=postgres etc. only set at build time, see Dockerfile);
+# without it Keycloak re-builds with defaults and exports an empty dev-file database instead.
+export_workshop() {
+  mkdir -p export   # create it as the current user, otherwise Docker creates it as root and Keycloak can't write to it
+  compose stop keycloak
+  local rc=0
+  compose run --rm --no-deps -v "$PWD/export:/opt/keycloak/data/export" keycloak \
+    export --optimized --dir /opt/keycloak/data/export --users realm_file || rc=$?
+  compose up -d --wait
+  if [ "$rc" -ne 0 ]; then
+    echo "Realm export failed (exit code $rc)." >&2
+    exit "$rc"
+  fi
+  tar --exclude=.git --exclude=.terraform --exclude="$BACKUP_FILE" -czf "$BACKUP_FILE" .
+  echo
+  echo "Realms exported to: export/"
+  echo "Workshop backup:    $BACKUP_FILE  (Explorer -> right-click -> Download...)"
+  echo "Note: the export contains password hashes and client secrets of the workshop realms."
+  echo
 }
 
 print_urls() {
@@ -76,8 +101,11 @@ case "${1:-}" in
     shift
     compose exec postgres psql -U keycloak keycloak "$@"
     ;;
+  export)
+    export_workshop
+    ;;
   *)
-    echo "Usage: $0 {up|down|restart|logs [service]|status|url|db [psql args]}" >&2
+    echo "Usage: $0 {up|down|restart|logs [service]|status|url|db [psql args]|export}" >&2
     exit 1
     ;;
 esac

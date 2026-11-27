@@ -4,3 +4,4 @@ export
 log
 .terraform*
 terraform.tf*
+workshop-backup.tar.gz

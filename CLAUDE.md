@@ -10,7 +10,9 @@ Terraform (`terraform/`, `tf.sh`, from `main`) runs in the `keycloak-workshop` n
 ### Setup
 
 - `.devcontainer/devcontainer.json`: `base:ubuntu-24.04` + docker-in-docker feature, min. 2 cores (4 recommended), `postStartCommand` runs `.devcontainer/kc.sh up`.
-- `.devcontainer/kc.sh`: wrapper around `docker compose` (`up|down|restart|logs|status|url|db`; `db` opens psql on the Keycloak database), waits for the DinD daemon.
+- `.devcontainer/kc.sh`: wrapper around `docker compose` (`up|down|restart|logs|status|url|db|export`; `db` opens psql on the Keycloak database,
+  `export` stops Keycloak, runs `kc.sh export --optimized --users realm_file` into `./export`
+  (`--optimized` is required, otherwise Keycloak re-builds with defaults and exports an empty dev-file DB; verified in a codespace 2026-11-27) and packs the workspace into `workshop-backup.tar.gz` for download), waits for the DinD daemon.
 - `docker-compose.yml`: keycloak, proxy (nginx), postgres, ldap, mail. Only nginx publishes port 8080.
   Keycloak publishes only its management port 9000 directly (health/metrics are plain GETs, no CORS/hostname issues).
 - The public URL is defined once as YAML anchor `x-public-url` from `CODESPACE_NAME` and `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`.
